@@ -1,4 +1,4 @@
-# Rekidnle Mod
+# Rekindle Mod
 
 ## License
 
