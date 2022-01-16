@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "rekindle",
+  "version": "${version}",
+
+  "name": "Rekinlde",
+  "description": "A mod that adds a buch of additions to the game",
+  "authors": [
+    "slimemc"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": ""
+  },
+
+  "license": "GPL-3.0",
+  "icon": "assets/rekindle/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.slimemc.rekindle.Rekindle"
+    ],
+    "client": [
+      "com.slimemc.rekindle.RekindleClient"
+    ]
+  },
+  "mixins": [
+      "rekindle.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "minecraft": "1.17.x",
+    "java": ">=16",
+    "fabric" : "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

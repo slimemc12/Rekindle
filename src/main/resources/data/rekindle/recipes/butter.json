@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "rekindle:cream"
+    }
+  ],
+  "result": {
+    "item": "rekindle:butter",
+    "count": 1
+  }
+}

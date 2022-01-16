@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "RRR",
+    "HHH"
+  ],
+  "key": {
+    "#": {
+      "item": "rekindle:salt"
+    },
+    "R": {
+      "item": "rekindle:meatballs"
+    },
+    "H": {
+      "item": "rekindle:pasta"
+    }
+  },
+  "result": {
+    "item": "rekindle:noodles",
+    "count": 1
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "block/crop",
+  "textures": {
+    "crop": "rekindle:blocks/strawberry_crop_stage1"
+  }
+}

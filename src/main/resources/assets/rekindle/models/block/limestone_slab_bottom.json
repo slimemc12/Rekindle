@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "side": "rekindle:blocks/limestone",
+    "bottom": "rekindle:blocks/limestone",
+    "top": "rekindle:blocks/limestone"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " r ",
+    " / ",
+    " / "
+  ],
+  "key": {
+    "r": {
+      "item": "rekindle:steel_ingot"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "rekindle:steel_shovel",
+    "count": 1
+  }
+}

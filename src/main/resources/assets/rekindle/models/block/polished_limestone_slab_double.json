@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "rekindle:blocks/polished_limestone",
+    "side": "rekindle:blocks/polished_limestone_slab_side"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "rekindle:items/steel_pickaxe"
+  }
+}

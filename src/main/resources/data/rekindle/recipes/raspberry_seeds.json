@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "rekindle:raspberry"
+    }
+  ],
+  "result": {
+    "item": "rekindle:raspberry_seeds",
+    "count": 1
+  }
+}

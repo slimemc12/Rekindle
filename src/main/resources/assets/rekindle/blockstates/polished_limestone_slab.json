@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "rekindle:block/polished_limestone_slab_top"
+    },
+    "type=bottom": {
+      "model": "rekindle:block/polished_limestone_slab_bottom"
+    },
+    "type=double": {
+      "model": "rekindle:block/polished_limestone_slab_double"
+    }
+  }
+}

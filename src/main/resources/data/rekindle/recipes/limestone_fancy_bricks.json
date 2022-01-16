@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "rekindle:limestone"
+  },
+  "result": "rekindle:limestone_fancy_bricks",
+  "count": 1
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "rekindle:peanut"
+    }
+  ],
+  "result": {
+    "item": "rekindle:peanut_seeds",
+    "count": 1
+  }
+}

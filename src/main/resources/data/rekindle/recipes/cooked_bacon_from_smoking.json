@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "rekindle:raw_bacon"
+  },
+  "result": "rekindle:cooked_bacon",
+  "experience": 0.7,
+  "cookingtime": 100
+}

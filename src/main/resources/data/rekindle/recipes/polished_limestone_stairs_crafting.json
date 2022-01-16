@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "rekindle:polished_limestone"
+    }
+  },
+  "result": {
+    "item": "rekindle:polished_limestone_stairs",
+    "count": 4
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "music_disc.pillaged": {
+    "sounds": [
+      {
+        "name": "rekindle:records/pillaged",
+        "stream": true
+      }
+    ]
+  }
+}

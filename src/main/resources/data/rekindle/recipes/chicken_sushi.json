@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:dried_kelp"
+    },
+    {
+      "item": "rekindle:rice"
+    },
+    {
+      "item": "minecraft:cooked_chicken"
+    },
+    {
+      "item": "rekindle:rice"
+    },
+    {
+      "item": "minecraft:dried_kelp"
+    }
+  ],
+  "result": {
+    "item": "rekindle:chicken_sushi",
+    "count": 1
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "rrr",
+    "rrr",
+    "rrr"
+  ],
+  "key": {
+    "r": {
+      "item": "rekindle:aluminum_ingot"
+    }
+  },
+  "result": {
+    "item": "rekindle:aluminum_block",
+    "count": 1
+  }
+}

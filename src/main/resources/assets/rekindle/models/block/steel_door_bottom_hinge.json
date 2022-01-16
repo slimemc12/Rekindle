@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_rh",
+  "textures": {
+    "top": "rekindle:blocks/steel_door_top",
+    "bottom": "rekindle:blocks/steel_door_bottom"
+  }
+}

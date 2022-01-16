@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "minecraft:iron_ingot"
+  },
+  "result": "rekindle:carbonised_iron",
+  "experience": 0.4,
+  "cookingtime": 200
+}

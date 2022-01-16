@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "rekindle:steel_ingot"
+    }
+  },
+  "result": {
+    "item": "rekindle:steel_bars",
+    "count": 16
+  }
+}

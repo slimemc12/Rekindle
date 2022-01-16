@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "rekindle:large_bottle"
+    },
+    {
+      "item": "rekindle:peanut"
+    },
+    {
+      "item": "rekindle:butter"
+    }
+  ],
+  "result": {
+    "item": "rekindle:peanut_butter",
+    "count": 1
+  }
+}

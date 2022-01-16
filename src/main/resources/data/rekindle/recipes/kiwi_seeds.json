@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "rekindle:kiwi"
+    }
+  ],
+  "result": {
+    "item": "rekindle:kiwi_seeds",
+    "count": 4
+  }
+}

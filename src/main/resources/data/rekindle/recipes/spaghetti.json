@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "RRR",
+    "WWW"
+  ],
+  "key": {
+    "#": {
+      "item": "rekindle:salt"
+    },
+    "R": {
+      "item": "rekindle:tomato"
+    },
+    "W": {
+      "item": "rekindle:pasta"
+    }
+  },
+  "result": {
+    "item": "rekindle:spaghetti",
+    "count": 1
+  }
+}

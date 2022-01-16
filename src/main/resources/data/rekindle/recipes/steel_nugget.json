@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "r"
+    ],
+    "key": {
+        "r": {
+            "item": "rekindle:steel_ingot"
+        }
+    },
+    "result": {
+        "item": "rekindle:steel_nugget",
+        "count": 9
+    }
+}

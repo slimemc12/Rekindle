@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "rrr",
+    "r r",
+    "   "
+  ],
+  "key": {
+    "r": {
+      "item": "rekindle:steel_ingot"
+    }
+  },
+  "result": {
+    "item": "rekindle:steel_helmet",
+    "count": 1
+  }
+}

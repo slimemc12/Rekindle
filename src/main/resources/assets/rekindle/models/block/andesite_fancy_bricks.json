@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "rekindle:blocks/andesite_fancy_bricks"
+  }
+}

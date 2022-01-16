@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    " R ",
+    " Z "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:snowball"
+    },
+    "R": {
+      "item": "rekindle:cream"
+    },
+    "Z": {
+      "item": "rekindle:pasta"
+    }
+  },
+  "result": {
+    "item": "rekindle:ice_cream",
+    "count": 1
+  }
+}

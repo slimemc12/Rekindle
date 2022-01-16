@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "rekindle:corn"
+  },
+  "result": "rekindle:roasted_corn",
+  "experience": 1,
+  "cookingtime": 100
+}
