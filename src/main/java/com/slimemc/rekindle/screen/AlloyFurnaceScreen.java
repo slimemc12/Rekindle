@@ -29,7 +29,7 @@ public class AlloyFurnaceScreen extends HandledScreen<AlloyFurnaceScreenHandler>
         RenderSystem.setShaderTexture(0, TEXTURE);
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;
-
+        drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
     }
 
 

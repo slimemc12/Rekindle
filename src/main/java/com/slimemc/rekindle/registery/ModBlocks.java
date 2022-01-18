@@ -116,6 +116,6 @@ public class ModBlocks {
         CORN_CROP = register("corn_crop", new CornBlock(FabricBlockSettings.of(Material.PLANT).breakInstantly().strength(0F,0F).sounds(BlockSoundGroup.CROP).noCollision()));
         RICE_CROP = register("rice_crop", new RiceBlock(FabricBlockSettings.of(Material.REPLACEABLE_UNDERWATER_PLANT).breakInstantly().strength(0F,0F).sounds(BlockSoundGroup.CROP).noCollision()));
         BUSH = register("bush", new BushBlock(FabricBlockSettings.of(Material.PLANT).breakInstantly().strength(0f,0f).sounds(BlockSoundGroup.GRASS).noCollision()));
-        ALLOY_FURNACE = register("alloy_furnace", new AlloyFurnaceBlock(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool().strength(5.0f, 30.0f).sounds(BlockSoundGroup.METAL)));
+        ALLOY_FURNACE = register("alloy_furnace", new AlloyFurnaceBlock(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool().strength(5.0f, 30.0f).sounds(BlockSoundGroup.NETHER_BRICKS)));
     }
 }

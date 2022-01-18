@@ -1,6 +1,5 @@
 package com.slimemc.rekindle.blocks.block_entities;
 
-import com.mojang.datafixers.TypeRewriteRule;
 import com.slimemc.rekindle.Rekindle;
 import com.slimemc.rekindle.registery.ModBlocks;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
