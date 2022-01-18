@@ -48,18 +48,19 @@ public class ModBlocks {
     public static final Block LIMESTONE_PAVING;
     public static final Block LIMESTONE_PILLAR;
     public static final Block COBBLED_DIRT;
-    public static final Block STEEL_TRAPDOOR ;
-    public static final Block STEEL_DOOR ;
-    public static final Block STEEL_BARS ;
+    public static final Block STEEL_TRAPDOOR;
+    public static final Block STEEL_DOOR;
+    public static final Block STEEL_BARS;
     public static final Block TOMATO_CROP;
-    public static final Block KIWI_CROP ;
-    public static final Block RASPBERRY_CROP ;
-    public static final Block STRAWBERRY_CROP ;
-    public static final Block PEANUT_CROP ;
-    public static final Block CORN_CROP ;
-    public static final Block RICE_CROP ;
-    public static final Block BUSH ;
-    public static final Block SALT_ORE ;
+    public static final Block KIWI_CROP;
+    public static final Block RASPBERRY_CROP;
+    public static final Block STRAWBERRY_CROP;
+    public static final Block PEANUT_CROP;
+    public static final Block CORN_CROP;
+    public static final Block RICE_CROP;
+    public static final Block BUSH;
+    public static final Block SALT_ORE;
+    public static final Block ALLOY_FURNACE;
 
     public static void registerModBlocks() {
         System.out.println("Registering ModBlocks for Rekindle");
@@ -115,5 +116,6 @@ public class ModBlocks {
         CORN_CROP = register("corn_crop", new CornBlock(FabricBlockSettings.of(Material.PLANT).breakInstantly().strength(0F,0F).sounds(BlockSoundGroup.CROP).noCollision()));
         RICE_CROP = register("rice_crop", new RiceBlock(FabricBlockSettings.of(Material.REPLACEABLE_UNDERWATER_PLANT).breakInstantly().strength(0F,0F).sounds(BlockSoundGroup.CROP).noCollision()));
         BUSH = register("bush", new BushBlock(FabricBlockSettings.of(Material.PLANT).breakInstantly().strength(0f,0f).sounds(BlockSoundGroup.GRASS).noCollision()));
+        ALLOY_FURNACE = register("alloy_furnace", new AlloyFurnaceBlock(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool().strength(5.0f, 30.0f).sounds(BlockSoundGroup.METAL)));
     }
 }

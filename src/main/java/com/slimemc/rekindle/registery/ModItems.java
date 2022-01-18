@@ -104,6 +104,7 @@ public class ModItems {
     public static final Item LARGE_BOTTLE;
     public static final Item BUSH;
     public static final Item MUSIC_DISC_PILLAGED;
+    public static final Item ALLOY_FURNACE;
 
     public static void registerModItems() {
         System.out.println("Registering ModItems for Rekindle");
@@ -198,6 +199,7 @@ public class ModItems {
         LARGE_BOTTLE = register("large_bottle", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP)));
         BUSH = register("bush", new BlockItem(ModBlocks.BUSH, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         MUSIC_DISC_PILLAGED = register("music_disc_pillaged", new RekindleMusicDiscItem(14, RekindleSoundEvents.MUSIC_DISC_PILLAGED, (new Item.Settings()).maxCount(1).group(Rekindle.ITEM_GROUP).rarity(Rarity.RARE)));
+        ALLOY_FURNACE = register("alloy_furnace", new BlockItem(ModBlocks.ALLOY_FURNACE, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
     }
 
 }

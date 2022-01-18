@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "rekindle:blocks/alloy_furnace_top",
+    "front": "rekindle:blocks/alloy_furnace_front",
+    "side": "rekindle:blocks/alloy_furnace_side"
+  }
+}

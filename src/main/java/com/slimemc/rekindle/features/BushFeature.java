@@ -5,16 +5,12 @@ import com.slimemc.rekindle.registery.ModBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Heightmap;
-import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.util.FeatureContext;
 
-import java.util.Random;
-
-public class BushFeature extends Feature {
-    public BushFeature(Codec configCodec) {
+public class BushFeature extends Feature<DefaultFeatureConfig> {
+    public BushFeature(Codec<DefaultFeatureConfig> configCodec) {
         super(configCodec);
     }
 
