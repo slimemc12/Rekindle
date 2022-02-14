@@ -2,6 +2,7 @@ package com.slimemc.rekindle;
 
 
 import com.slimemc.rekindle.enchantments.VenomEnchantment;
+import com.slimemc.rekindle.recipes.RekindleRecipes;
 import com.slimemc.rekindle.registery.ModBlocks;
 import com.slimemc.rekindle.registery.ModItems;
 import com.slimemc.rekindle.status_effects.ElectrocutionStatusEffect;
@@ -31,6 +32,7 @@ public class Rekindle implements ModInitializer {
     public void onInitialize() {
         ModItems.registerModItems();
         ModBlocks.registerModBlocks();
+        RekindleRecipes.registerRecipes();
         VenomEnchantment.registerEnchantments();
         OreGenerator.registerOres();
         FeatureGenerator.registerFeatures();

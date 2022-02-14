@@ -1,18 +1,33 @@
 {
   "variants": {
-    "facing=east": {
+    "facing=east,lit=false": {
       "model": "rekindle:block/alloy_furnace",
       "y": 90
     },
-    "facing=north": {
+    "facing=east,lit=true": {
+      "model": "rekindle:block/alloy_furnace_on",
+      "y": 90
+    },
+    "facing=north,lit=false": {
       "model": "rekindle:block/alloy_furnace"
     },
-    "facing=south": {
+    "facing=north,lit=true": {
+      "model": "rekindle:block/alloy_furnace_on"
+    },
+    "facing=south,lit=false": {
       "model": "rekindle:block/alloy_furnace",
       "y": 180
     },
-    "facing=west": {
+    "facing=south,lit=true": {
+      "model": "rekindle:block/alloy_furnace_on",
+      "y": 180
+    },
+    "facing=west,lit=false": {
       "model": "rekindle:block/alloy_furnace",
+      "y": 270
+    },
+    "facing=west,lit=true": {
+      "model": "rekindle:block/alloy_furnace_on",
       "y": 270
     }
   }

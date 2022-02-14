@@ -30,6 +30,14 @@ public class AlloyFurnaceScreen extends HandledScreen<AlloyFurnaceScreenHandler>
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;
         drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
+        if(handler.isCrafting()) {
+            int progress = handler.getScaledProgress();
+            int fuel_progress = handler.getScaledFuel();
+            this.drawTexture(matrices, x + 98, y + 37, 176, 37, progress, 24);
+            this.drawTexture(matrices, x + 27, y + 35, 176, 0, 14, fuel_progress);
+
+
+        }
     }
 
 
