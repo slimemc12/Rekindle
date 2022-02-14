@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#B#",
+    "HGH",
+    "HCH"
+  ],
+  "key": {
+    "#": {
+      "item": "rekindle:steel_block"
+    },
+    "B": {
+      "item": "rekindle:steel_ingot"
+    },
+    "H": {
+      "item": "minecraft:bricks"
+    },
+    "G": {
+      "item": "minecraft:blast_furnace"
+    },
+    "C": {
+      "item": "minecraft:cauldron"
+    }
+  },
+  "result": {
+    "item": "rekindle:alloy_furnace",
+    "count": 1
+  }
+}
