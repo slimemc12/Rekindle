@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " rr",
+    " /r",
+    " / "
+  ],
+  "key": {
+    "r": {
+      "item": "rekindle:blazing_steel_ingot"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "rekindle:blazing_steel_axe",
+    "count": 1
+  }
+}

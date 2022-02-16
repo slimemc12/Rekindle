@@ -70,7 +70,7 @@ public class ModBlocks {
     }
 
     static {
-        ALUMINUM_BLOCK = register("aluminum_block", new Block(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(5.0f, 30.0f).sounds(BlockSoundGroup.METAL)));
+        ALUMINUM_BLOCK = register("aluminum_block", new Block(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES, 1).requiresTool().strength(5.0f, 30.0f).sounds(BlockSoundGroup.METAL)));
         STEEL_BLOCK = register("steel_block", new Block(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(5.0f, 30.0f).sounds(BlockSoundGroup.METAL)));
         ALUMINUM_ORE = register("aluminum_ore", new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.0f, 15.0f).sounds(BlockSoundGroup.STONE)));
         ANDESITE_BRICKS = register("andesite_bricks", new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.2f, 7.0f).sounds(BlockSoundGroup.STONE)));
@@ -116,6 +116,6 @@ public class ModBlocks {
         CORN_CROP = register("corn_crop", new CornBlock(FabricBlockSettings.of(Material.PLANT).breakInstantly().strength(0F,0F).sounds(BlockSoundGroup.CROP).noCollision()));
         RICE_CROP = register("rice_crop", new RiceBlock(FabricBlockSettings.of(Material.REPLACEABLE_UNDERWATER_PLANT).breakInstantly().strength(0F,0F).sounds(BlockSoundGroup.CROP).noCollision()));
         BUSH = register("bush", new BushBlock(FabricBlockSettings.of(Material.PLANT).breakInstantly().strength(0f,0f).sounds(BlockSoundGroup.GRASS).noCollision()));
-        ALLOY_FURNACE = register("alloy_furnace", new AlloyFurnaceBlock(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool().strength(5.0f, 30.0f).sounds(BlockSoundGroup.NETHER_BRICKS)));
+        ALLOY_FURNACE = register("alloy_furnace", new AlloyFurnaceBlock(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(5.0f, 30.0f).sounds(BlockSoundGroup.NETHER_BRICKS)));
     }
 }

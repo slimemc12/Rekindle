@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "r r",
+    "r r"
+  ],
+  "key": {
+    "r": {
+      "item": "rekindle:blazing_steel_ingot"
+    }
+  },
+  "result": {
+    "item": "rekindle:blazing_steel_boots",
+    "count": 1
+  }
+}

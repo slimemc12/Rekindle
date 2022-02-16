@@ -106,7 +106,7 @@ public class AlloyFurnaceBlock extends BlockWithEntity implements BlockEntityPro
             double j = random.nextDouble() * 9.0D / 16.0D;
             double k = axis == Direction.Axis.Z ? (double)direction.getOffsetZ() * 0.52D : h;
             world.addParticle(ParticleTypes.SMOKE, d + i, e + j, f + k, 0.0D, 0.0D, 0.0D);
-            world.addParticle(ParticleTypes.LAVA, (double)pos.getX() + 0.5D, (double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D, (random.nextFloat() / 2.0F), 5.0E-5D, (random.nextFloat() / 4.0F));
+            world.addParticle(ParticleTypes.LAVA, (double)pos.getX() + 0.5D, (double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D, (random.nextFloat() / 2.0F), 5.0E-5D, (random.nextFloat() / 2.0F));
         }
     }
 }

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "rekindle:steel_pickaxe"
+    "rekindle:steel_pickaxe",
+    "rekindle:blazing_steel_pickaxe"
   ]
 }

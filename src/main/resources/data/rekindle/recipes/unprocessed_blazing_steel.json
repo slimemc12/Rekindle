@@ -1,0 +1,14 @@
+{
+  "type": "rekindle:alloying",
+  "ingredients": [
+    {
+      "item": "rekindle:steel_ingot"
+    },
+    {
+      "item": "minecraft:blaze_powder"
+    }
+  ],
+  "output": {
+    "item": "rekindle:unprocessed_blazing_steel"
+  }
+}

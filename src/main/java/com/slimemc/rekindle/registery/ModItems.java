@@ -2,14 +2,19 @@ package com.slimemc.rekindle.registery;
 
 
 import com.slimemc.rekindle.Rekindle;
+import com.slimemc.rekindle.items.BlazingSteelArmorItem;
+import com.slimemc.rekindle.items.BlazingSteelSwordItem;
 import com.slimemc.rekindle.items.ChilliItem;
-import com.slimemc.rekindle.items.SteelAxe;
-import com.slimemc.rekindle.items.SteelHoe;
-import com.slimemc.rekindle.items.SteelPickaxe;
+import com.slimemc.rekindle.materials.BlazingSteelArmorMaterial;
+import com.slimemc.rekindle.materials.BlazingSteelToolMaterial;
+import com.slimemc.rekindle.util.item.RekindleAxe;
+import com.slimemc.rekindle.util.item.RekindleHoe;
+import com.slimemc.rekindle.util.item.RekindlePickaxe;
 import com.slimemc.rekindle.materials.SteelArmorMaterial;
 import com.slimemc.rekindle.materials.SteelToolMaterial;
 import com.slimemc.rekindle.util.RekindleMusicDiscItem;
 import com.slimemc.rekindle.util.RekindleSoundEvents;
+import com.slimemc.rekindle.items.SteelArmorItem;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -25,10 +30,10 @@ public class ModItems {
     public static final Item ALUMINUM_INGOT;
     public static final Item ALUMINUM_NUGGET;
     public static final Item STEEL_SHOVEL;
+    public static final Item STEEL_HOE;
     public static final Item STEEL_SWORD;
     public static final Item STEEL_AXE;
     public static final Item STEEL_PICKAXE;
-    public static final Item STEEL_HOE;
     public static final Item STEEL_HELMET;
     public static final Item STEEL_CHESTPLATE;
     public static final Item STEEL_LEGGINGS;
@@ -105,6 +110,15 @@ public class ModItems {
     public static final Item BUSH;
     public static final Item MUSIC_DISC_PILLAGED;
     public static final Item ALLOY_FURNACE;
+    public static final Item BLAZING_STEEL_INGOT;
+    public static final Item UNPROCESSED_BLAZING_STEEL;
+    public static final Item BLAZING_STEEL_SWORD;
+    public static final Item BLAZING_STEEL_AXE;
+    public static final Item BLAZING_STEEL_PICKAXE;
+    public static final Item BLAZING_STEEL_HELMET;
+    public static final Item BLAZING_STEEL_CHESTPLATE;
+    public static final Item BLAZING_STEEL_LEGGINGS;
+    public static final Item BLAZING_STEEL_BOOTS;
 
     public static void registerModItems() {
         System.out.println("Registering ModItems for Rekindle");
@@ -119,12 +133,12 @@ public class ModItems {
         STEEL_NUGGET = register("steel_nugget", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP)));
         ALUMINUM_INGOT = register("aluminum_ingot", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP)));
         ALUMINUM_NUGGET = register("aluminum_nugget", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP)));
+        STEEL_HOE = register("steel_hoe", new RekindleHoe(SteelToolMaterial.INSTANCE, 0, -1F, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         STEEL_SHOVEL = register("steel_shovel", new ShovelItem(SteelToolMaterial.INSTANCE, 1, -3.0F, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         STEEL_SWORD = register("steel_sword", new SwordItem(SteelToolMaterial.INSTANCE, 4, -2.4F, new Item.Settings().group(Rekindle.ITEM_GROUP)));
-        STEEL_AXE = register("steel_axe", new SteelAxe(SteelToolMaterial.INSTANCE, 6.5F, -3.0F, new Item.Settings().group(Rekindle.ITEM_GROUP)));
-        STEEL_PICKAXE = register("steel_pickaxe", new SteelPickaxe(SteelToolMaterial.INSTANCE, 1, -2.8F, new Item.Settings().group(Rekindle.ITEM_GROUP)));
-        STEEL_HOE = register("steel_hoe", new SteelHoe(SteelToolMaterial.INSTANCE, 0, -1F, new Item.Settings().group(Rekindle.ITEM_GROUP)));
-        STEEL_HELMET = register("steel_helmet", new ArmorItem(SteelArmorMaterial.INSTANCE, EquipmentSlot.HEAD, new Item.Settings().group(Rekindle.ITEM_GROUP)));
+        STEEL_AXE = register("steel_axe", new RekindleAxe(SteelToolMaterial.INSTANCE, 6.5F, -3.0F, new Item.Settings().group(Rekindle.ITEM_GROUP)));
+        STEEL_PICKAXE = register("steel_pickaxe", new RekindlePickaxe(SteelToolMaterial.INSTANCE, 1, -2.8F, new Item.Settings().group(Rekindle.ITEM_GROUP)));
+        STEEL_HELMET = register("steel_helmet", new SteelArmorItem(SteelArmorMaterial.INSTANCE, EquipmentSlot.HEAD, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         STEEL_CHESTPLATE = register("steel_chestplate", new ArmorItem(SteelArmorMaterial.INSTANCE, EquipmentSlot.CHEST, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         STEEL_LEGGINGS = register("steel_leggings", new ArmorItem(SteelArmorMaterial.INSTANCE, EquipmentSlot.LEGS, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         STEEL_BOOTS = register("steel_boots", new ArmorItem(SteelArmorMaterial.INSTANCE, EquipmentSlot.FEET, new Item.Settings().group(Rekindle.ITEM_GROUP)));
@@ -200,6 +214,15 @@ public class ModItems {
         BUSH = register("bush", new BlockItem(ModBlocks.BUSH, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         MUSIC_DISC_PILLAGED = register("music_disc_pillaged", new RekindleMusicDiscItem(14, RekindleSoundEvents.MUSIC_DISC_PILLAGED, (new Item.Settings()).maxCount(1).group(Rekindle.ITEM_GROUP).rarity(Rarity.RARE)));
         ALLOY_FURNACE = register("alloy_furnace", new BlockItem(ModBlocks.ALLOY_FURNACE, new Item.Settings().group(Rekindle.ITEM_GROUP)));
+        BLAZING_STEEL_INGOT = register("blazing_steel_ingot", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).rarity(Rarity.UNCOMMON)));
+        UNPROCESSED_BLAZING_STEEL = register("unprocessed_blazing_steel", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).rarity(Rarity.UNCOMMON)));
+        BLAZING_STEEL_SWORD = register("blazing_steel_sword", new BlazingSteelSwordItem(BlazingSteelToolMaterial.INSTANCE, 5, -2.0F, new Item.Settings().group(Rekindle.ITEM_GROUP).rarity(Rarity.UNCOMMON)));
+        BLAZING_STEEL_AXE = register("blazing_steel_axe", new RekindleAxe(BlazingSteelToolMaterial.INSTANCE, 6.5F, -2.0F, new Item.Settings().group(Rekindle.ITEM_GROUP).rarity(Rarity.UNCOMMON)));
+        BLAZING_STEEL_PICKAXE = register("blazing_steel_pickaxe", new RekindlePickaxe(BlazingSteelToolMaterial.INSTANCE, 1, -1.8F, new Item.Settings().group(Rekindle.ITEM_GROUP).rarity(Rarity.UNCOMMON)));
+        BLAZING_STEEL_HELMET = register("blazing_steel_helmet", new BlazingSteelArmorItem(BlazingSteelArmorMaterial.INSTANCE, EquipmentSlot.HEAD, new Item.Settings().group(Rekindle.ITEM_GROUP).rarity(Rarity.UNCOMMON)));
+        BLAZING_STEEL_CHESTPLATE = register("blazing_steel_chestplate", new ArmorItem(BlazingSteelArmorMaterial.INSTANCE, EquipmentSlot.CHEST, new Item.Settings().group(Rekindle.ITEM_GROUP).rarity(Rarity.UNCOMMON)));
+        BLAZING_STEEL_LEGGINGS = register("blazing_steel_leggings", new ArmorItem(BlazingSteelArmorMaterial.INSTANCE, EquipmentSlot.LEGS, new Item.Settings().group(Rekindle.ITEM_GROUP).rarity(Rarity.UNCOMMON)));
+        BLAZING_STEEL_BOOTS = register("blazing_steel_boots", new ArmorItem(BlazingSteelArmorMaterial.INSTANCE, EquipmentSlot.FEET, new Item.Settings().group(Rekindle.ITEM_GROUP).rarity(Rarity.UNCOMMON)));
     }
 
 }

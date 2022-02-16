@@ -27,11 +27,8 @@ public class VenomEnchantment extends Enchantment {
         return 3;
     }
 
-    @Override
-    public void onTargetDamaged(LivingEntity user, Entity target, int level) {
-        if(target instanceof LivingEntity) {
-            ((LivingEntity) target).addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 100, 2));
-        }
+    public void onTargetDamaged(LivingEntity user, LivingEntity target, int level) {
+        target.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 100, 2));
 
         super.onTargetDamaged(user, target, level);
     }
