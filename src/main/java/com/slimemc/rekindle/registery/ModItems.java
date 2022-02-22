@@ -214,15 +214,15 @@ public class ModItems {
         BUSH = register("bush", new BlockItem(ModBlocks.BUSH, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         MUSIC_DISC_PILLAGED = register("music_disc_pillaged", new RekindleMusicDiscItem(14, RekindleSoundEvents.MUSIC_DISC_PILLAGED, (new Item.Settings()).maxCount(1).group(Rekindle.ITEM_GROUP).rarity(Rarity.RARE)));
         ALLOY_FURNACE = register("alloy_furnace", new BlockItem(ModBlocks.ALLOY_FURNACE, new Item.Settings().group(Rekindle.ITEM_GROUP)));
-        BLAZING_STEEL_INGOT = register("blazing_steel_ingot", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).rarity(Rarity.UNCOMMON)));
+        BLAZING_STEEL_INGOT = register("blazing_steel_ingot", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
         UNPROCESSED_BLAZING_STEEL = register("unprocessed_blazing_steel", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).rarity(Rarity.UNCOMMON)));
-        BLAZING_STEEL_SWORD = register("blazing_steel_sword", new BlazingSteelSwordItem(BlazingSteelToolMaterial.INSTANCE, 5, -2.0F, new Item.Settings().group(Rekindle.ITEM_GROUP).rarity(Rarity.UNCOMMON)));
-        BLAZING_STEEL_AXE = register("blazing_steel_axe", new RekindleAxe(BlazingSteelToolMaterial.INSTANCE, 6.5F, -2.0F, new Item.Settings().group(Rekindle.ITEM_GROUP).rarity(Rarity.UNCOMMON)));
-        BLAZING_STEEL_PICKAXE = register("blazing_steel_pickaxe", new RekindlePickaxe(BlazingSteelToolMaterial.INSTANCE, 1, -1.8F, new Item.Settings().group(Rekindle.ITEM_GROUP).rarity(Rarity.UNCOMMON)));
-        BLAZING_STEEL_HELMET = register("blazing_steel_helmet", new BlazingSteelArmorItem(BlazingSteelArmorMaterial.INSTANCE, EquipmentSlot.HEAD, new Item.Settings().group(Rekindle.ITEM_GROUP).rarity(Rarity.UNCOMMON)));
-        BLAZING_STEEL_CHESTPLATE = register("blazing_steel_chestplate", new ArmorItem(BlazingSteelArmorMaterial.INSTANCE, EquipmentSlot.CHEST, new Item.Settings().group(Rekindle.ITEM_GROUP).rarity(Rarity.UNCOMMON)));
-        BLAZING_STEEL_LEGGINGS = register("blazing_steel_leggings", new ArmorItem(BlazingSteelArmorMaterial.INSTANCE, EquipmentSlot.LEGS, new Item.Settings().group(Rekindle.ITEM_GROUP).rarity(Rarity.UNCOMMON)));
-        BLAZING_STEEL_BOOTS = register("blazing_steel_boots", new ArmorItem(BlazingSteelArmorMaterial.INSTANCE, EquipmentSlot.FEET, new Item.Settings().group(Rekindle.ITEM_GROUP).rarity(Rarity.UNCOMMON)));
+        BLAZING_STEEL_SWORD = register("blazing_steel_sword", new BlazingSteelSwordItem(BlazingSteelToolMaterial.INSTANCE, 5, -2.0F, new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
+        BLAZING_STEEL_AXE = register("blazing_steel_axe", new RekindleAxe(BlazingSteelToolMaterial.INSTANCE, 6.5F, -2.0F, new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
+        BLAZING_STEEL_PICKAXE = register("blazing_steel_pickaxe", new RekindlePickaxe(BlazingSteelToolMaterial.INSTANCE, 1, -1.8F, new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
+        BLAZING_STEEL_HELMET = register("blazing_steel_helmet", new BlazingSteelArmorItem(BlazingSteelArmorMaterial.INSTANCE, EquipmentSlot.HEAD, new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
+        BLAZING_STEEL_CHESTPLATE = register("blazing_steel_chestplate", new ArmorItem(BlazingSteelArmorMaterial.INSTANCE, EquipmentSlot.CHEST, new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
+        BLAZING_STEEL_LEGGINGS = register("blazing_steel_leggings", new ArmorItem(BlazingSteelArmorMaterial.INSTANCE, EquipmentSlot.LEGS, new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
+        BLAZING_STEEL_BOOTS = register("blazing_steel_boots", new ArmorItem(BlazingSteelArmorMaterial.INSTANCE, EquipmentSlot.FEET, new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
     }
 
 }

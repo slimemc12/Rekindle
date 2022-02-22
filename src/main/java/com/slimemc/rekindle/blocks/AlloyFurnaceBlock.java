@@ -50,6 +50,10 @@ public class AlloyFurnaceBlock extends BlockWithEntity implements BlockEntityPro
 
         return ActionResult.SUCCESS;
     }
+    @Override
+    public boolean hasComparatorOutput(BlockState state) {
+        return true;
+    }
 
     @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {

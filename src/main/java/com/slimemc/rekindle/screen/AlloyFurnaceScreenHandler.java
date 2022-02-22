@@ -98,12 +98,9 @@ public class AlloyFurnaceScreenHandler extends ScreenHandler {
     public int getScaledFuel() {
         int progress = this.propertyDelegate.get(0);
         int maxProgress = this.propertyDelegate.get(1); // Max Progress
-        if (maxProgress == 0) {
-            maxProgress = 200;
-        }
         int fuelArrowSize = 14;
 
-        return progress != 0  ? progress * fuelArrowSize / maxProgress : 0;
+        return maxProgress != 0 && progress != 0 ? progress * fuelArrowSize / maxProgress : 0;
     }
     protected boolean isFuel(ItemStack itemStack) {
         return AbstractFurnaceBlockEntity.canUseAsFuel(itemStack);

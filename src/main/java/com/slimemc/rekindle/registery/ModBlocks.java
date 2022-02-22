@@ -70,7 +70,7 @@ public class ModBlocks {
     }
 
     static {
-        ALUMINUM_BLOCK = register("aluminum_block", new Block(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES, 1).requiresTool().strength(5.0f, 30.0f).sounds(BlockSoundGroup.METAL)));
+        ALUMINUM_BLOCK = register("aluminum_block", new Block(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(5.0f, 30.0f).sounds(BlockSoundGroup.METAL)));
         STEEL_BLOCK = register("steel_block", new Block(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(5.0f, 30.0f).sounds(BlockSoundGroup.METAL)));
         ALUMINUM_ORE = register("aluminum_ore", new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.0f, 15.0f).sounds(BlockSoundGroup.STONE)));
         ANDESITE_BRICKS = register("andesite_bricks", new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.2f, 7.0f).sounds(BlockSoundGroup.STONE)));
@@ -103,10 +103,10 @@ public class ModBlocks {
         LIMESTONE_TILES = register("limestone_tiles", new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.2f,6.5f).sounds(BlockSoundGroup.STONE)));
         LIMESTONE_PAVING = register("limestone_paving", new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.2f,7.0f).sounds(BlockSoundGroup.STONE)));
         LIMESTONE_PILLAR = register("limestone_pillar", new PillarBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.2f,7.0f).sounds(BlockSoundGroup.STONE)));
-        COBBLED_DIRT = register("cobbled_dirt", new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 2).breakByHand(true).strength(2.5f, 2F).sounds(RekindleBlockSoundGroup.COBBLED_DIRT)));
-        STEEL_TRAPDOOR = register("steel_trapdoor", new RekindleTrapdoorBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(3.0F).sounds(BlockSoundGroup.METAL).nonOpaque()));
-        STEEL_DOOR = register("steel_door", new RekindleDoorBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(5.0F).sounds(BlockSoundGroup.METAL).nonOpaque()));
-        STEEL_BARS = register("steel_bars", new RekindlePaneBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).nonOpaque())) ;
+        COBBLED_DIRT = register("cobbled_dirt", new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.SHOVELS, 2).breakByHand(true).strength(2.5f, 2F).sounds(RekindleBlockSoundGroup.COBBLED_DIRT)));
+        STEEL_TRAPDOOR = register("steel_trapdoor", new RekindleTrapdoorBlock(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(3.0F).sounds(BlockSoundGroup.METAL).nonOpaque()));
+        STEEL_DOOR = register("steel_door", new RekindleDoorBlock(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(5.0F, 6F).sounds(BlockSoundGroup.METAL).nonOpaque()));
+        STEEL_BARS = register("steel_bars", new RekindlePaneBlock(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).nonOpaque())) ;
         SALT_ORE = register("salt_ore", new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).requiresTool().strength(3F,12F).sounds(BlockSoundGroup.STONE)));
         TOMATO_CROP = register("tomato_crop", new TomatoBlock(FabricBlockSettings.of(Material.PLANT).breakInstantly().strength(0F,0F).sounds(BlockSoundGroup.CROP).noCollision()));
         KIWI_CROP = register("kiwi_crop", new KiwiBlock(FabricBlockSettings.of(Material.PLANT).breakInstantly().strength(0F,0F).sounds(BlockSoundGroup.CROP).noCollision()));
@@ -116,6 +116,6 @@ public class ModBlocks {
         CORN_CROP = register("corn_crop", new CornBlock(FabricBlockSettings.of(Material.PLANT).breakInstantly().strength(0F,0F).sounds(BlockSoundGroup.CROP).noCollision()));
         RICE_CROP = register("rice_crop", new RiceBlock(FabricBlockSettings.of(Material.REPLACEABLE_UNDERWATER_PLANT).breakInstantly().strength(0F,0F).sounds(BlockSoundGroup.CROP).noCollision()));
         BUSH = register("bush", new BushBlock(FabricBlockSettings.of(Material.PLANT).breakInstantly().strength(0f,0f).sounds(BlockSoundGroup.GRASS).noCollision()));
-        ALLOY_FURNACE = register("alloy_furnace", new AlloyFurnaceBlock(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(5.0f, 30.0f).sounds(BlockSoundGroup.NETHER_BRICKS)));
+        ALLOY_FURNACE = register("alloy_furnace", new AlloyFurnaceBlock(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(5.0f, 30.0f).sounds(BlockSoundGroup.NETHER_BRICKS).luminance(10)));
     }
 }

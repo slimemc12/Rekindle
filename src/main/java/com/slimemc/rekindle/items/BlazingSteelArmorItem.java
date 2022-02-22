@@ -53,7 +53,7 @@ public class BlazingSteelArmorItem extends ArmorItem {
         boolean hasPlayerEffect = player.hasStatusEffect(mapStatusEffect);
 
         if(hasCorrectArmorOn(mapArmorMaterial, player) && !hasPlayerEffect) {
-            player.addStatusEffect(new StatusEffectInstance(mapStatusEffect, 20));
+            player.addStatusEffect(new StatusEffectInstance(mapStatusEffect, 200));
 
         }
     }

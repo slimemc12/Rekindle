@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "rekindle:blazing_steel_axe",
+    "rekindle:blazing_steel_pickaxe",
+    "rekindle:blazing_steel_sword",
+    "rekindle:blazing_steel_helmet",
+    "rekindle:blazing_steel_chestplate",
+    "rekindle:blazing_steel_leggings",
+    "rekindle:blazing_steel_boots",
+    "rekindle:blazing_steel_ingot"
+  ]
+}
