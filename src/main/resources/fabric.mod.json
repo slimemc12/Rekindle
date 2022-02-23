@@ -13,7 +13,7 @@
     "sources": ""
   },
 
-  "license": "GPL-3.0",
+  "license": "mit",
   "icon": "assets/rekindle/icon.png",
 
   "environment": "*",
