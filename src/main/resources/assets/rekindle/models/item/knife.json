@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "rekindle:items/music_disc_end"
+    "layer0": "rekindle:items/knife"
   }
 }

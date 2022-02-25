@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "rekindle:pepper_powder"
+    },
+    {
+      "item": "rekindle:knife"
+    },
+    {
+      "item": "minecraft:porkchop"
+    },
+    {
+      "item": "rekindle:salt"
+    }
+  ],
+  "result": {
+    "item": "rekindle:raw_bacon",
+    "count": 2
+  }
+}

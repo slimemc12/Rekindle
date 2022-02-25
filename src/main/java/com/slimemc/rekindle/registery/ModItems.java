@@ -95,6 +95,7 @@ public class ModItems {
     public static final Item SALMON_SUSHI;
     public static final Item CHICKEN_SUSHI;
     public static final Item CHILLI;
+    public static final Item PEPPER_POWDER;
     public static final Item TOMATO_SEEDS;
     public static final Item KIWI_SEEDS;
     public static final Item RASPBERRY_SEEDS;
@@ -110,6 +111,7 @@ public class ModItems {
     public static final Item BUSH;
     public static final Item MUSIC_DISC_PILLAGED;
     public static final Item ALLOY_FURNACE;
+    public static final Item KNIFE;
     public static final Item BLAZING_STEEL_INGOT;
     public static final Item UNPROCESSED_BLAZING_STEEL;
     public static final Item BLAZING_STEEL_SWORD;
@@ -183,8 +185,8 @@ public class ModItems {
         COOKED_BACON = register("cooked_bacon", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(3).saturationModifier(6f).meat().build())));
         ICE_CREAM = register("ice_cream", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(2).saturationModifier(4f).build())));
         NOODLES = register("noodles", new MushroomStewItem(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(4).saturationModifier(6f).build())));
-        MEATBALLS = register("raw_bacon", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(1).saturationModifier(2f).build())));
-        RAW_BACON = register("meatballs", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(2).saturationModifier(2f).build())));
+        MEATBALLS = register("meatballs", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(1).saturationModifier(2f).build())));
+        RAW_BACON = register("raw_bacon", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(6).saturationModifier(10f).build())));
         MEATBALL_SANDWHICH = register("meatball_sandwhich", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(7).saturationModifier(9f).build())));
         PASTA = register("pasta", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(2).saturationModifier(3f).build())));
         SPAGHETTI = register("spaghetti", new MushroomStewItem(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(4).saturationModifier(6f).build())));
@@ -199,6 +201,7 @@ public class ModItems {
         SALMON_SUSHI = register("salmon_sushi", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(4).saturationModifier(5f).build())));
         CHICKEN_SUSHI = register("chicken_sushi", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(5).saturationModifier(5f).build())));
         CHILLI = register("chilli", new ChilliItem(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(2).saturationModifier(0.8f).statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 400, 2), 1F).snack().alwaysEdible().build())));
+        PEPPER_POWDER = register("pepper_powder", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP)));
         TOMATO_SEEDS = register("tomato_seeds", new AliasedBlockItem(ModBlocks.TOMATO_CROP, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         KIWI_SEEDS = register("kiwi_seeds", new AliasedBlockItem(ModBlocks.KIWI_CROP, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         RASPBERRY_SEEDS = register("raspberry_seeds", new AliasedBlockItem(ModBlocks.RASPBERRY_CROP, new Item.Settings().group(Rekindle.ITEM_GROUP)));
@@ -207,13 +210,14 @@ public class ModItems {
         CORN_SEEDS = register("corn_seeds", new AliasedBlockItem(ModBlocks.CORN_CROP, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         RICE = register("rice", new AliasedBlockItem(ModBlocks.RICE_CROP, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         SALT = register("salt", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP)));
-        PEANUT_BUTTER = register("peanut_butter", new Item(new Item.Settings().recipeRemainder(ModItems.LARGE_BOTTLE).group(Rekindle.ITEM_GROUP)));
-        BUTTER = register("butter", new Item(new Item.Settings().recipeRemainder(Items.BOWL).group(Rekindle.ITEM_GROUP)));
-        CREAM = register("cream", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP)));
+        PEANUT_BUTTER = register("peanut_butter", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).recipeRemainder(ModItems.LARGE_BOTTLE)));
+        BUTTER = register("butter", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP)));
+        CREAM = register("cream", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).recipeRemainder(Items.BOWL)));
         LARGE_BOTTLE = register("large_bottle", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP)));
         BUSH = register("bush", new BlockItem(ModBlocks.BUSH, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         MUSIC_DISC_PILLAGED = register("music_disc_pillaged", new RekindleMusicDiscItem(14, RekindleSoundEvents.MUSIC_DISC_PILLAGED, (new Item.Settings()).maxCount(1).group(Rekindle.ITEM_GROUP).rarity(Rarity.RARE)));
         ALLOY_FURNACE = register("alloy_furnace", new BlockItem(ModBlocks.ALLOY_FURNACE, new Item.Settings().group(Rekindle.ITEM_GROUP)));
+        KNIFE = register("knife", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).maxCount(1).recipeRemainder(ModItems.KNIFE)));
         BLAZING_STEEL_INGOT = register("blazing_steel_ingot", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
         UNPROCESSED_BLAZING_STEEL = register("unprocessed_blazing_steel", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).rarity(Rarity.UNCOMMON)));
         BLAZING_STEEL_SWORD = register("blazing_steel_sword", new BlazingSteelSwordItem(BlazingSteelToolMaterial.INSTANCE, 5, -2.0F, new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));

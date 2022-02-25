@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  i",
+    " / ",
+    "/  "
+  ],
+  "key": {
+    "i": {
+      "item": "rekindle:aluminum_ingot"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "rekindle:knife",
+    "count": 1
+  }
+}

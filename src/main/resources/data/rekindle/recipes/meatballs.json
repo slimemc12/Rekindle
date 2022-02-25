@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "rekindle:pepper_powder"
+    },
+    {
+      "item": "rekindle:knife"
+    },
+    {
+      "item": "minecraft:cooked_beef"
+    },
+    {
+      "item": "rekindle:salt"
+    }
+  ],
+  "result": {
+    "item": "rekindle:meatballs",
+    "count": 3
+  }
+}

@@ -1,13 +1,15 @@
 package com.slimemc.rekindle;
 
 
-import com.slimemc.rekindle.enchantments.VenomEnchantment;
+import com.slimemc.rekindle.enchantments.ModEnchantments;
+import com.slimemc.rekindle.loot_tables.LootTableModifiers;
 import com.slimemc.rekindle.recipes.RekindleRecipes;
 import com.slimemc.rekindle.registery.ModBlocks;
 import com.slimemc.rekindle.registery.ModItems;
 import com.slimemc.rekindle.status_effects.ElectrocutionStatusEffect;
 import com.slimemc.rekindle.util.RekindleSoundEvents;
-import com.slimemc.rekindle.world.FeatureGenerator;
+import com.slimemc.rekindle.world.ModWorldGen;
+import com.slimemc.rekindle.world.RekindleConfiguredFeature;
 import com.slimemc.rekindle.world.biomes.LostLandsBiome;
 import com.slimemc.rekindle.world.biomes.OasisBiome;
 import com.slimemc.rekindle.world.OreGenerator;
@@ -33,13 +35,15 @@ public class Rekindle implements ModInitializer {
         ModItems.registerModItems();
         ModBlocks.registerModBlocks();
         RekindleRecipes.registerRecipes();
-        VenomEnchantment.registerEnchantments();
+        ModEnchantments.registerEnchantments();
         OreGenerator.registerOres();
-        FeatureGenerator.registerFeatures();
+        ModWorldGen.registerModWorldGen();
         ElectrocutionStatusEffect.registerElectrocutionEffect();
         LostLandsBiome.registerLostLands();
         OasisBiome.registerOasis();
+        LootTableModifiers.modifyLootTables();
         RekindleSoundEvents.registerSoundEvents();
+        RekindleConfiguredFeature.registerConfiguredFeatures();
         System.out.println("Rekindle mod was loaded sucessfully");
     }
 
