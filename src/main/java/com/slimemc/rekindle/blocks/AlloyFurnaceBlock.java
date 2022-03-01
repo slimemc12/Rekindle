@@ -85,6 +85,7 @@ public class AlloyFurnaceBlock extends BlockWithEntity implements BlockEntityPro
         FACING = HorizontalFacingBlock.FACING;
         LIT = Properties.LIT;
     }
+
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(FACING, LIT);
@@ -98,13 +99,10 @@ public class AlloyFurnaceBlock extends BlockWithEntity implements BlockEntityPro
             double d = (double)pos.getX() + 0.5D;
             double e = pos.getY();
             double f = (double)pos.getZ() + 0.5D;
-            if (random.nextDouble() < 0.1D) {
-                world.playSound(d, e, f, SoundEvents.BLOCK_BLASTFURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
-            }
+            world.playSound(d, e, f, SoundEvents.BLOCK_BLASTFURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 2.0F, 1.0F, false);
 
             Direction direction = state.get(FACING);
             Direction.Axis axis = direction.getAxis();
-            double g = 0.52D;
             double h = random.nextDouble() * 0.6D - 0.3D;
             double i = axis == Direction.Axis.X ? (double)direction.getOffsetX() * 0.52D : h;
             double j = random.nextDouble() * 9.0D / 16.0D;

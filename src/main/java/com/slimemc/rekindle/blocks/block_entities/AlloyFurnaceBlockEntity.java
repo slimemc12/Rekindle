@@ -1,6 +1,8 @@
 package com.slimemc.rekindle.blocks.block_entities;
 
+import com.google.common.collect.Maps;
 import com.slimemc.rekindle.recipes.AlloyFurnaceRecipe;
+import com.slimemc.rekindle.registery.ModItems;
 import com.slimemc.rekindle.screen.AlloyFurnaceScreenHandler;
 import com.slimemc.rekindle.util.ImplementedInventory;
 import net.minecraft.block.AbstractFurnaceBlock;
@@ -10,8 +12,12 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
+import net.minecraft.inventory.SidedInventory;
 import net.minecraft.inventory.SimpleInventory;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.PropertyDelegate;
@@ -20,12 +26,17 @@ import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Map;
 import java.util.Optional;
 
-public class AlloyFurnaceBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
+public class AlloyFurnaceBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory, SidedInventory {
+    private static final int[] TOP_SLOTS = new int[]{0, 1};
+    private static final int[] BOTTOM_SLOTS = new int[]{2};
+    private static final int[] SIDE_SLOTS = new int[]{3};
     private final DefaultedList<ItemStack> inventory =
             DefaultedList.ofSize(4, ItemStack.EMPTY);
     protected final PropertyDelegate propertyDelegate;
@@ -77,11 +88,15 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements NamedScreenH
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
         Inventories.readNbt(nbt, inventory);
+        this.progress = nbt.getShort("CookTime");
+        this.maxProgress = nbt.getShort("CookTimeTotal");
     }
 
     @Override
     public NbtCompound writeNbt(NbtCompound nbt) {
         Inventories.writeNbt(nbt, inventory);
+        nbt.putShort("CookTime", (short)this.progress);
+        nbt.putShort("CookTimeTotal", (short)this.maxProgress);
         return super.writeNbt(nbt);
     }
     public static void tick(World world, BlockPos pos, BlockState state, AlloyFurnaceBlockEntity entity) {
@@ -106,6 +121,20 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements NamedScreenH
     }
     private boolean isBurning() {
         return this.progress > 0;
+    }
+    public static boolean canUseAsFuel(ItemStack stack) {
+        return createFuelTimeMap().containsKey(stack.getItem());
+    }
+    public static Map<Item, Integer> createFuelTimeMap() {
+        Map<Item, Integer> map = Maps.newLinkedHashMap();
+        addFuel(map, Items.LAVA_BUCKET, 20000);
+        addFuel(map, Items.BLAZE_ROD, 2400);
+        addFuel(map, ModItems.BLAST_FUEL, 20000);
+        return map;
+    }
+    private static void addFuel(Map<Item, Integer> fuelTimes, ItemConvertible item, int fuelTime) {
+        Item item2 = item.asItem();
+        fuelTimes.put(item2, fuelTime);
     }
 
     private static boolean hasRecipe(AlloyFurnaceBlockEntity entity) {
@@ -143,6 +172,27 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements NamedScreenH
                     entity.getStack(2).getCount() + 1));
 
             entity.resetProgress();
+        }
+    }
+    public int[] getAvailableSlots(Direction side) {
+        if (side == Direction.DOWN) {
+            return BOTTOM_SLOTS;
+        } else {
+            return side == Direction.UP ? TOP_SLOTS : SIDE_SLOTS;
+        }
+    }
+
+    @Override
+    public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) {
+        return this.isValid(slot, stack);
+    }
+
+    @Override
+    public boolean canExtract(int slot, ItemStack stack, Direction dir) {
+        if (dir == Direction.DOWN && slot == 1) {
+            return stack.isOf(Items.WATER_BUCKET) || stack.isOf(Items.BUCKET);
+        } else {
+            return true;
         }
     }
 

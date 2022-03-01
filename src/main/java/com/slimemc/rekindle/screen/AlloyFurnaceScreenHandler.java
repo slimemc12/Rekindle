@@ -1,5 +1,6 @@
 package com.slimemc.rekindle.screen;
 
+import com.slimemc.rekindle.blocks.block_entities.AlloyFurnaceBlockEntity;
 import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -103,9 +104,8 @@ public class AlloyFurnaceScreenHandler extends ScreenHandler {
         return maxProgress != 0 && progress != 0 ? progress * fuelArrowSize / maxProgress : 0;
     }
     protected boolean isFuel(ItemStack itemStack) {
-        return AbstractFurnaceBlockEntity.canUseAsFuel(itemStack);
+        return AlloyFurnaceBlockEntity.canUseAsFuel(itemStack);
     }
-
 
 }
 class AlloyFurnaceFuelSlot extends Slot {
