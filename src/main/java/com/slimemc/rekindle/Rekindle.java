@@ -8,6 +8,7 @@ import com.slimemc.rekindle.registery.ModBlocks;
 import com.slimemc.rekindle.registery.ModItems;
 import com.slimemc.rekindle.status_effects.ElectrocutionStatusEffect;
 import com.slimemc.rekindle.util.RekindleSoundEvents;
+import com.slimemc.rekindle.util.item.RekindleRegistries;
 import com.slimemc.rekindle.world.ModWorldGen;
 import com.slimemc.rekindle.world.RekindleConfiguredFeature;
 import com.slimemc.rekindle.world.biomes.LostLandsBiome;
@@ -34,6 +35,7 @@ public class Rekindle implements ModInitializer {
     public void onInitialize() {
         ModItems.registerModItems();
         ModBlocks.registerModBlocks();
+        RekindleRegistries.registerFuels();
         RekindleRecipes.registerRecipes();
         ModEnchantments.registerEnchantments();
         OreGenerator.registerOres();

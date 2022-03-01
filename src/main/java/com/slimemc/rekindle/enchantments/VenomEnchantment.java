@@ -16,7 +16,7 @@ public class VenomEnchantment extends Enchantment {
 
     @Override
     public int getMinPower(int level) {
-        return 5;
+        return 9;
     }
 
     @Override

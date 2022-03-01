@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#CC",
+    "COO",
+    "OG "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:lava_bucket"
+    },
+    "C": {
+      "tag": "minecraft:coals"
+    },
+    "O": {
+      "tag": "minecraft:logs_that_burn"
+    },
+    "G": {
+      "item": "minecraft:gunpowder"
+    }
+  },
+  "result": {
+    "item": "rekindle:blast_fuel",
+    "count": 16
+  }
+}

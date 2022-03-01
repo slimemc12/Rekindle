@@ -22,12 +22,12 @@ public class VitalityEnchantment extends Enchantment {
         return 1;
     }
     @Override
-    public boolean isTreasure() {
+    public boolean isAvailableForEnchantedBookOffer() {
         return true;
     }
     @Override
-    public boolean isAvailableForEnchantedBookOffer() {
-        return true;
+    public boolean isAvailableForRandomSelection() {
+        return false;
     }
     @Override
     public void onTargetDamaged(LivingEntity user, Entity target, int level) {

@@ -27,6 +27,8 @@
   "item.rekindle.chilli": "Chilli",
   "item.rekindle.pepper_powder": "Pepper Powder",
   "item.rekindle.carbonised_iron": "Carbonised Iron",
+  "item.rekindle.blast_fuel": "Blast Fuel",
+  "item.rekindle.blast_fuel.desc": "A Very Hot Fuel, Might Burn You",
   "item.rekindle.steel_ingot": "Steel Ingot",
   "item.rekindle.steel_nugget": "Steel Nugget",
   "item.rekindle.aluminum_ingot": "Aluminum Ingot",
@@ -103,6 +105,7 @@
   "block.rekindle.cobbled_dirt": "Cobbled Dirt",
   "block.rekindle.steel_bars": "Steel Bars",
   "block.rekindle.alloy_furnace": "Alloy Furnace",
+  "block.rekindle.inverted_redstone_lamp": "Inverted Redstone Lamp",
 
   "itemGroup.rekindle.rekindle": "Rekindle",
   "itemGroup.rekindle.rekindle_palette": "Rekindle Decoration"
