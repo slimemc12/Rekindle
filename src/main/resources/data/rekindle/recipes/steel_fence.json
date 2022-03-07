@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "# #",
+    "i/i",
+    "i/i"
+  ],
+  "key": {
+    "#": {
+      "item": "rekindle:steel_screw"
+    },
+    "i": {
+      "item": "rekindle:steel_ingot"
+    },
+    "/": {
+      "item": "rekindle:steel_rod"
+    }
+  },
+  "result": {
+    "item": "rekindle:steel_fence",
+    "count": 4
+  }
+}

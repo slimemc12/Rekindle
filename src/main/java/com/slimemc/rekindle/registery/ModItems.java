@@ -12,6 +12,7 @@ import com.slimemc.rekindle.materials.SteelArmorMaterial;
 import com.slimemc.rekindle.materials.SteelToolMaterial;
 import com.slimemc.rekindle.util.RekindleMusicDiscItem;
 import com.slimemc.rekindle.util.RekindleSoundEvents;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -25,8 +26,6 @@ public class ModItems {
     public static final Item BLAST_FUEL;
     public static final Item STEEL_INGOT;
     public static final Item STEEL_NUGGET;
-    public static final Item ALUMINUM_INGOT;
-    public static final Item ALUMINUM_NUGGET;
     public static final Item STEEL_SHOVEL;
     public static final Item STEEL_HOE;
     public static final Item STEEL_SWORD;
@@ -40,9 +39,23 @@ public class ModItems {
     public static final Item STEEL_TRAPDOOR;
     public static final Item STEEL_DOOR;
     public static final Item STEEL_BARS;
+    public static final Item STEEL_FENCE;
+    public static final Item STEEL_ROD;
+    public static final Item STEEL_SCREW;
+    public static final Item ALUMINUM_INGOT;
+    public static final Item ALUMINUM_NUGGET;
     public static final Item ALUMINUM_BLOCK;
     public static final Item ALUMINUM_ORE;
     public static final Item SALT_ORE;
+    public static final Item BLAZING_STEEL_INGOT;
+    public static final Item UNPROCESSED_BLAZING_STEEL;
+    public static final Item BLAZING_STEEL_SWORD;
+    public static final Item BLAZING_STEEL_AXE;
+    public static final Item BLAZING_STEEL_PICKAXE;
+    public static final Item BLAZING_STEEL_HELMET;
+    public static final Item BLAZING_STEEL_CHESTPLATE;
+    public static final Item BLAZING_STEEL_LEGGINGS;
+    public static final Item BLAZING_STEEL_BOOTS;
     public static final Item ANDESITE_BRICKS;
     public static final Item ANDESITE_LARGE_BRICKS;
     public static final Item ANDESITE_FANCY_BRICKS;
@@ -111,15 +124,6 @@ public class ModItems {
     public static final Item ALLOY_FURNACE;
     public static final Item INVERTED_REDSTONE_LAMP;
     public static final Item KNIFE;
-    public static final Item BLAZING_STEEL_INGOT;
-    public static final Item UNPROCESSED_BLAZING_STEEL;
-    public static final Item BLAZING_STEEL_SWORD;
-    public static final Item BLAZING_STEEL_AXE;
-    public static final Item BLAZING_STEEL_PICKAXE;
-    public static final Item BLAZING_STEEL_HELMET;
-    public static final Item BLAZING_STEEL_CHESTPLATE;
-    public static final Item BLAZING_STEEL_LEGGINGS;
-    public static final Item BLAZING_STEEL_BOOTS;
 
     public static void registerModItems() {
         System.out.println("Registering ModItems for Rekindle");
@@ -133,8 +137,6 @@ public class ModItems {
         BLAST_FUEL = register("blast_fuel", new BlastFuelItem(new Item.Settings().group(Rekindle.ITEM_GROUP)));
         STEEL_INGOT = register("steel_ingot", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP)));
         STEEL_NUGGET = register("steel_nugget", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP)));
-        ALUMINUM_INGOT = register("aluminum_ingot", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP)));
-        ALUMINUM_NUGGET = register("aluminum_nugget", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP)));
         STEEL_HOE = register("steel_hoe", new RekindleHoe(SteelToolMaterial.INSTANCE, 0, -1F, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         STEEL_SHOVEL = register("steel_shovel", new ShovelItem(SteelToolMaterial.INSTANCE, 1, -3.0F, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         STEEL_SWORD = register("steel_sword", new SwordItem(SteelToolMaterial.INSTANCE, 4, -2.4F, new Item.Settings().group(Rekindle.ITEM_GROUP)));
@@ -148,9 +150,24 @@ public class ModItems {
         STEEL_TRAPDOOR = register("steel_trapdoor", new BlockItem(ModBlocks.STEEL_TRAPDOOR, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         STEEL_DOOR = register("steel_door", new TallBlockItem(ModBlocks.STEEL_DOOR, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         STEEL_BARS = register("steel_bars", new BlockItem(ModBlocks.STEEL_BARS, new Item.Settings().group(Rekindle.ITEM_GROUP)));
+        STEEL_FENCE = register("steel_fence", new BlockItem(ModBlocks.STEEL_FENCE, new Item.Settings().group(Rekindle.ITEM_GROUP)));
+        STEEL_ROD = register("steel_rod", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP)));
+        STEEL_SCREW = register("steel_screw", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP)));
+        ALUMINUM_INGOT = register("aluminum_ingot", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP)));
+        ALUMINUM_NUGGET = register("aluminum_nugget", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP)));
         ALUMINUM_BLOCK = register("aluminum_block", new BlockItem(ModBlocks.ALUMINUM_BLOCK, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         ALUMINUM_ORE = register("aluminum_ore", new BlockItem(ModBlocks.ALUMINUM_ORE, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         SALT_ORE = register("salt_ore", new BlockItem(ModBlocks.SALT_ORE, new Item.Settings().group(Rekindle.ITEM_GROUP)));
+        BLAZING_STEEL_INGOT = register("blazing_steel_ingot", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
+        UNPROCESSED_BLAZING_STEEL = register("unprocessed_blazing_steel", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).rarity(Rarity.UNCOMMON)));
+        BLAZING_STEEL_SWORD = register("blazing_steel_sword", new BlazingSteelSwordItem(BlazingSteelToolMaterial.INSTANCE, 5, -2.0F, new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.COMMON)));
+        BLAZING_STEEL_AXE = register("blazing_steel_axe", new RekindleAxe(BlazingSteelToolMaterial.INSTANCE, 6.5F, -2.0F, new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
+        BLAZING_STEEL_PICKAXE = register("blazing_steel_pickaxe", new RekindlePickaxe(BlazingSteelToolMaterial.INSTANCE, 1, -1.8F, new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
+        BLAZING_STEEL_HELMET = register("blazing_steel_helmet", new BlazingSteelArmorItem(BlazingSteelArmorMaterial.INSTANCE, EquipmentSlot.HEAD, new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
+        BLAZING_STEEL_CHESTPLATE = register("blazing_steel_chestplate", new ArmorItem(BlazingSteelArmorMaterial.INSTANCE, EquipmentSlot.CHEST, new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
+        BLAZING_STEEL_LEGGINGS = register("blazing_steel_leggings", new ArmorItem(BlazingSteelArmorMaterial.INSTANCE, EquipmentSlot.LEGS, new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
+        BLAZING_STEEL_BOOTS = register("blazing_steel_boots", new ArmorItem(BlazingSteelArmorMaterial.INSTANCE, EquipmentSlot.FEET, new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
+        // deco
         ANDESITE_BRICKS = register("andesite_bricks", new BlockItem(ModBlocks.ANDESITE_BRICKS, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
         ANDESITE_LARGE_BRICKS = register("andesite_large_bricks", new BlockItem(ModBlocks.ANDESITE_LARGE_BRICKS, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
         ANDESITE_FANCY_BRICKS = register("andesite_fancy_bricks", new BlockItem(ModBlocks.ANDESITE_FANCY_BRICKS, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
@@ -182,6 +199,7 @@ public class ModItems {
         LIMESTONE_PAVING = register("limestone_paving", new BlockItem(ModBlocks.LIMESTONE_PAVING, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
         LIMESTONE_PILLAR = register("limestone_pillar", new BlockItem(ModBlocks.LIMESTONE_PILLAR, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
         COBBLED_DIRT = register("cobbled_dirt", new BlockItem(ModBlocks.COBBLED_DIRT, new Item.Settings().group(Rekindle.ITEM_GROUP)));
+        //food
         COOKED_BACON = register("cooked_bacon", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(3).saturationModifier(6f).meat().build())));
         ICE_CREAM = register("ice_cream", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(2).saturationModifier(4f).build())));
         NOODLES = register("noodles", new MushroomStewItem(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(4).saturationModifier(6f).build())));
@@ -215,19 +233,11 @@ public class ModItems {
         CREAM = register("cream", new Item(new Item.Settings().recipeRemainder(Items.BOWL).group(Rekindle.ITEM_GROUP)));
         LARGE_BOTTLE = register("large_bottle", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP)));
         BUSH = register("bush", new BlockItem(ModBlocks.BUSH, new Item.Settings().group(Rekindle.ITEM_GROUP)));
+        //misc
         MUSIC_DISC_PILLAGED = register("music_disc_pillaged", new RekindleMusicDiscItem(14, RekindleSoundEvents.MUSIC_DISC_PILLAGED, (new Item.Settings()).maxCount(1).group(Rekindle.ITEM_GROUP).rarity(Rarity.RARE)));
         ALLOY_FURNACE = register("alloy_furnace", new BlockItem(ModBlocks.ALLOY_FURNACE, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         INVERTED_REDSTONE_LAMP = register("inverted_redstone_lamp", new BlockItem(ModBlocks.INVERTED_REDSTONE_LAMP, new Item.Settings().group(Rekindle.ITEM_GROUP)));
-        KNIFE = register("knife", new Item(new Item.Settings().recipeRemainder(ModItems.KNIFE).group(Rekindle.ITEM_GROUP).maxCount(1)));
-        BLAZING_STEEL_INGOT = register("blazing_steel_ingot", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
-        UNPROCESSED_BLAZING_STEEL = register("unprocessed_blazing_steel", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).rarity(Rarity.UNCOMMON)));
-        BLAZING_STEEL_SWORD = register("blazing_steel_sword", new BlazingSteelSwordItem(BlazingSteelToolMaterial.INSTANCE, 5, -2.0F, new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
-        BLAZING_STEEL_AXE = register("blazing_steel_axe", new RekindleAxe(BlazingSteelToolMaterial.INSTANCE, 6.5F, -2.0F, new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
-        BLAZING_STEEL_PICKAXE = register("blazing_steel_pickaxe", new RekindlePickaxe(BlazingSteelToolMaterial.INSTANCE, 1, -1.8F, new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
-        BLAZING_STEEL_HELMET = register("blazing_steel_helmet", new BlazingSteelArmorItem(BlazingSteelArmorMaterial.INSTANCE, EquipmentSlot.HEAD, new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
-        BLAZING_STEEL_CHESTPLATE = register("blazing_steel_chestplate", new ArmorItem(BlazingSteelArmorMaterial.INSTANCE, EquipmentSlot.CHEST, new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
-        BLAZING_STEEL_LEGGINGS = register("blazing_steel_leggings", new ArmorItem(BlazingSteelArmorMaterial.INSTANCE, EquipmentSlot.LEGS, new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
-        BLAZING_STEEL_BOOTS = register("blazing_steel_boots", new ArmorItem(BlazingSteelArmorMaterial.INSTANCE, EquipmentSlot.FEET, new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
+        KNIFE = register("knife", (Item)new Item(new Item.Settings().recipeRemainder(ModItems.KNIFE).group(Rekindle.ITEM_GROUP).maxCount(1).maxDamage(300)));
     }
 
 }

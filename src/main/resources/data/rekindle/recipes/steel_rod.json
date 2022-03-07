@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "i",
+    "i"
+  ],
+  "key": {
+    "i": {
+      "item": "rekindle:steel_ingot"
+    }
+  },
+  "result": {
+    "item": "rekindle:steel_rod",
+    "count": 4
+  }
+}
