@@ -12,7 +12,6 @@ import com.slimemc.rekindle.materials.SteelArmorMaterial;
 import com.slimemc.rekindle.materials.SteelToolMaterial;
 import com.slimemc.rekindle.util.RekindleMusicDiscItem;
 import com.slimemc.rekindle.util.RekindleSoundEvents;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
