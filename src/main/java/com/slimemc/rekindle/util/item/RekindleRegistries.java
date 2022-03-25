@@ -6,7 +6,7 @@ import net.fabricmc.fabric.api.registry.FuelRegistry;
 
 public class RekindleRegistries {
     public static void registerFuels() {
-        System.out.println("Now registering Fuels for " + Rekindle.MOD_ID);
+        System.out.println("Registering Fuels for " + Rekindle.MOD_ID);
         FuelRegistry registry = FuelRegistry.INSTANCE;
 
         registry.add(ModItems.BLAST_FUEL, 20000);

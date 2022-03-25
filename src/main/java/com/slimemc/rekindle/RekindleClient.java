@@ -1,6 +1,7 @@
 package com.slimemc.rekindle;
 
 import com.slimemc.rekindle.screen.AlloyFurnaceScreen;
+import com.slimemc.rekindle.screen.CrateScreen;
 import com.slimemc.rekindle.screen.RekindleScreenHandlers;
 import com.slimemc.rekindle.util.BlockRenders;
 import net.fabricmc.api.ClientModInitializer;
@@ -14,5 +15,6 @@ public class RekindleClient implements ClientModInitializer {
     public void onInitializeClient() {
         BlockRenders.definedRenders();
         ScreenRegistry.register(RekindleScreenHandlers.ALLOY_FURNACE_SCREEN_HANDLER, AlloyFurnaceScreen::new);
+        ScreenRegistry.register(RekindleScreenHandlers.CRATE_SCREEN_HANDLER, CrateScreen::new);
     }
 }

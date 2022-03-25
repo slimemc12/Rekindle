@@ -12,6 +12,7 @@ import com.slimemc.rekindle.materials.SteelArmorMaterial;
 import com.slimemc.rekindle.materials.SteelToolMaterial;
 import com.slimemc.rekindle.util.RekindleMusicDiscItem;
 import com.slimemc.rekindle.util.RekindleSoundEvents;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -121,6 +122,7 @@ public class ModItems {
     public static final Item BUSH;
     public static final Item MUSIC_DISC_PILLAGED;
     public static final Item ALLOY_FURNACE;
+    public static final Item CRATE;
     public static final Item INVERTED_REDSTONE_LAMP;
     public static final Item KNIFE;
 
@@ -235,8 +237,9 @@ public class ModItems {
         //misc
         MUSIC_DISC_PILLAGED = register("music_disc_pillaged", new RekindleMusicDiscItem(14, RekindleSoundEvents.MUSIC_DISC_PILLAGED, (new Item.Settings()).maxCount(1).group(Rekindle.ITEM_GROUP).rarity(Rarity.RARE)));
         ALLOY_FURNACE = register("alloy_furnace", new BlockItem(ModBlocks.ALLOY_FURNACE, new Item.Settings().group(Rekindle.ITEM_GROUP)));
+        CRATE = register("crate", new BlockItem(ModBlocks.CRATE, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         INVERTED_REDSTONE_LAMP = register("inverted_redstone_lamp", new BlockItem(ModBlocks.INVERTED_REDSTONE_LAMP, new Item.Settings().group(Rekindle.ITEM_GROUP)));
-        KNIFE = register("knife", (Item)new Item(new Item.Settings().recipeRemainder(ModItems.KNIFE).group(Rekindle.ITEM_GROUP).maxCount(1).maxDamage(300)));
+        KNIFE = register("knife", new KnifeItem(new FabricItemSettings().recipeRemainder(ModItems.KNIFE).group(Rekindle.ITEM_GROUP).maxCount(1).maxDamage(300)));
     }
 
 }

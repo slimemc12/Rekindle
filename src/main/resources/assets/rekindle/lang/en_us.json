@@ -109,6 +109,7 @@
   "block.rekindle.steel_bars": "Steel Bars",
   "block.rekindle.alloy_furnace": "Alloy Furnace",
   "block.rekindle.inverted_redstone_lamp": "Inverted Redstone Lamp",
+  "block.rekindle.crate": "Wooden Crate",
 
   "itemGroup.rekindle.rekindle": "Rekindle",
   "itemGroup.rekindle.rekindle_palette": "Rekindle Decoration"

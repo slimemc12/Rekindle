@@ -12,4 +12,8 @@ public class RekindleBlockEntities {
             Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Rekindle.MOD_ID, "alloy_furnace"),
                     FabricBlockEntityTypeBuilder.create(AlloyFurnaceBlockEntity::new,
                             ModBlocks.ALLOY_FURNACE).build(null));
+    public static BlockEntityType<CrateBlockEntity> CRATE_BLOCK_ENTITY =
+            Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Rekindle.MOD_ID, "crate"),
+                    FabricBlockEntityTypeBuilder.create(CrateBlockEntity::new,
+                            ModBlocks.CRATE).build(null));
 }

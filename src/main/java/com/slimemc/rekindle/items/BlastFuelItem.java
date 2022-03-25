@@ -21,7 +21,7 @@ public class BlastFuelItem extends Item {
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if(!world.isClient()) {
             if(entity instanceof PlayerEntity) {
-                if (new Random().nextFloat() > 0.98f) {
+                if (new Random().nextFloat() > 0.986f) {
                     PlayerEntity player = (PlayerEntity) entity;
                     player.setOnFireFor(1);
                 }

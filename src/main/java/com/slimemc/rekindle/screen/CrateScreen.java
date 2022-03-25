@@ -9,11 +9,16 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class AlloyFurnaceScreen extends HandledScreen<AlloyFurnaceScreenHandler> {
+public class CrateScreen extends HandledScreen<CrateScreenHandler> {
     private static final Identifier TEXTURE =
-            new Identifier(Rekindle.MOD_ID, "textures/gui/alloy_furnace_gui.png");
-    public AlloyFurnaceScreen(AlloyFurnaceScreenHandler handler, PlayerInventory inventory, Text title) {
+            new Identifier(Rekindle.MOD_ID, "textures/gui/crate_gui.png");
+    public CrateScreen(CrateScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
+        this.backgroundWidth = 175;
+        this.backgroundHeight = 203;
+        this.width = 175;
+        this.height = 203;
+        this.playerInventoryTitleY = 109;
     }
     @Override
     protected void init() {
@@ -21,7 +26,6 @@ public class AlloyFurnaceScreen extends HandledScreen<AlloyFurnaceScreenHandler>
         // Center the title
         titleX = (backgroundWidth - textRenderer.getWidth(title)) / 2;
     }
-
     @Override
     protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
@@ -30,16 +34,8 @@ public class AlloyFurnaceScreen extends HandledScreen<AlloyFurnaceScreenHandler>
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;
         drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
-        if(handler.isCrafting()) {
-            int progress = handler.getScaledProgress();
-            int fuel_progress = handler.getScaledFuel();
-            this.drawTexture(matrices, x + 98, y + 37, 176, 37, progress, 24);
-            this.drawTexture(matrices, x + 27, y + 35, 176, 0, 14, fuel_progress);
 
-        }
     }
-
-
     @Override
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
         renderBackground(matrices);

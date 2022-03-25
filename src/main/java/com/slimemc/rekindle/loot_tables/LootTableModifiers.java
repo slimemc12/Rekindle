@@ -17,6 +17,8 @@ public class LootTableModifiers {
             = new Identifier("minecraft", "blocks/spruce_leaves");
     private static final Identifier ACACIA_LEAVES_ID
             = new Identifier("minecraft", "blocks/acacia_leaves");
+    private static final Identifier PILLAGER_OUTPOST_ID
+            = new Identifier("minecraft", "chests/pillager_outpost");
     public static void modifyLootTables() {
         LootTableLoadingCallback.EVENT.register(((resourceManager, manager, id, supplier, setter) -> {
             if(OAK_LEAVES_ID.equals(id)) {
@@ -41,6 +43,14 @@ public class LootTableModifiers {
                         .conditionally(RandomChanceLootCondition.builder(0.3f))
                         .with(ItemEntry.builder(ModItems.CHILLI))
                         .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)).build());
+                supplier.withPool(poolBuilder.build());
+            }
+            if(PILLAGER_OUTPOST_ID.equals(id)) {
+                FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.1f))
+                        .with(ItemEntry.builder(ModItems.MUSIC_DISC_PILLAGED))
+                        .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
                 supplier.withPool(poolBuilder.build());
             }
         }));
