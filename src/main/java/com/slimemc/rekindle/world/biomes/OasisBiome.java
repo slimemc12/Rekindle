@@ -12,7 +12,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.biome.GenerationSettings;
 import net.minecraft.world.biome.SpawnSettings;
-import net.minecraft.world.gen.feature.ConfiguredStructureFeatures;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
@@ -68,8 +67,8 @@ public class OasisBiome {
     public static void registerOasis() {
         Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier(Rekindle.MOD_ID, "oasis"), OASIS_SURFACE_BUILDER);
         Registry.register(BuiltinRegistries.BIOME, OASIS_KEY.getValue(), OASIS);
-        OverworldBiomes.addContinentalBiome(OASIS_KEY, OverworldClimate.TEMPERATE, 0.25D);
-        OverworldBiomes.addContinentalBiome(OASIS_KEY, OverworldClimate.COOL, 0.003D);
+        OverworldBiomes.addContinentalBiome(OASIS_KEY, OverworldClimate.DRY, 0.25D);
+        OverworldBiomes.addContinentalBiome(OASIS_KEY, OverworldClimate.TEMPERATE, 0.003D);
     }
 
 }

@@ -1,24 +1,27 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "#B#",
-    "HGH",
-    "HCH"
+    "rRr",
+    "IBI",
+    "CDC"
   ],
   "key": {
-    "#": {
-      "item": "rekindle:steel_block"
-    },
-    "B": {
+    "r": {
       "item": "rekindle:steel_ingot"
     },
-    "H": {
-      "item": "minecraft:bricks"
+    "R": {
+      "item": "rekindle:steel_block"
     },
-    "G": {
+    "I": {
+      "item": "rekindle:brick_casing"
+    },
+    "B": {
       "item": "minecraft:blast_furnace"
     },
     "C": {
+      "item": "minecraft:copper_block"
+    },
+    "D": {
       "item": "minecraft:cauldron"
     }
   },

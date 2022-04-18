@@ -44,6 +44,6 @@ public class RekindleConfiguredFeature {
     }
 
     public static void registerConfiguredFeatures() {
-        System.out.println("Registering ModConfiguredFeatures for " + Rekindle.MOD_ID);
+        System.out.println("Registering ModConfiguredFeatures for Rekindle");
     }
 }

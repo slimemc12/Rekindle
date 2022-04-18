@@ -41,7 +41,7 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements NamedScreenH
             DefaultedList.ofSize(4, ItemStack.EMPTY);
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
-    private int maxProgress = 63;
+    private int maxProgress;
 
     public AlloyFurnaceBlockEntity(BlockPos pos, BlockState state) {
         super(RekindleBlockEntities.ALLOY_FURNACE_BLOCK_ENTITY, pos, state);
@@ -100,11 +100,19 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements NamedScreenH
         return super.writeNbt(nbt);
     }
     public static void tick(World world, BlockPos pos, BlockState state, AlloyFurnaceBlockEntity entity) {
+        SimpleInventory inventory = new SimpleInventory(entity.inventory.size());
+        for (int i = 0; i < entity.inventory.size(); i++) {
+            inventory.setStack(i, entity.getStack(i));
+        }
+
+        entity.maxProgress = world.getRecipeManager()
+                .getFirstMatch(AlloyFurnaceRecipe.Type.INSTANCE, inventory, world).map(AlloyFurnaceRecipe::getProcessTime).orElse(200);
         boolean bl = entity.isBurning();
         boolean bl2 = false;
-        if(hasRecipe(entity)) {
+
+        if (hasRecipe(entity)) {
             entity.progress++;
-            if(entity.progress > entity.maxProgress) {
+            if (entity.progress > entity.maxProgress) {
                 craftItem(entity);
             }
         } else {
@@ -163,6 +171,7 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements NamedScreenH
 
         Optional<AlloyFurnaceRecipe> match = world.getRecipeManager()
                 .getFirstMatch(AlloyFurnaceRecipe.Type.INSTANCE, inventory, world);
+
 
         if(match.isPresent() && hasNotReachedStackLimit(entity)) {
             entity.removeStack(0,1);

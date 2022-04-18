@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "rekindle:advanced_recipe",
   "ingredients": [
     {
       "item": "rekindle:pepper_powder"

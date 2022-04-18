@@ -1,5 +1,5 @@
 package com.slimemc.rekindle.enchantments;
-;
+
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.Entity;

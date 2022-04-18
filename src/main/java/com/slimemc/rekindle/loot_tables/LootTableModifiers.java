@@ -19,6 +19,10 @@ public class LootTableModifiers {
             = new Identifier("minecraft", "blocks/acacia_leaves");
     private static final Identifier PILLAGER_OUTPOST_ID
             = new Identifier("minecraft", "chests/pillager_outpost");
+    private static final Identifier PILLAGER_OUTPOST_ID2
+            = new Identifier("minecraft", "chests/pillager_outpost");
+    private static final Identifier SHIPWRECK_ID
+            = new Identifier("minecraft", "chests/shipwreck_supply");
     public static void modifyLootTables() {
         LootTableLoadingCallback.EVENT.register(((resourceManager, manager, id, supplier, setter) -> {
             if(OAK_LEAVES_ID.equals(id)) {
@@ -50,6 +54,22 @@ public class LootTableModifiers {
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.1f))
                         .with(ItemEntry.builder(ModItems.MUSIC_DISC_PILLAGED))
+                        .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(0.1f, 1.0f)).build());
+                supplier.withPool(poolBuilder.build());
+            }
+            if(PILLAGER_OUTPOST_ID2.equals(id)) {
+                FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.3f))
+                        .with(ItemEntry.builder(ModItems.ADVENTURER_DIARY))
+                        .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
+                supplier.withPool(poolBuilder.build());
+            }
+            if(SHIPWRECK_ID.equals(id)) {
+                FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.8f))
+                        .with(ItemEntry.builder(ModItems.ADVENTURER_DIARY))
                         .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
                 supplier.withPool(poolBuilder.build());
             }

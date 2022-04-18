@@ -1,0 +1,15 @@
+{
+  "type": "rekindle:alloying",
+  "ingredients": [
+    {
+      "item": "minecraft:raw_gold"
+    },
+    {
+      "item": "minecraft:sand"
+    }
+  ],
+  "output": {
+    "item": "minecraft:gold_ingot"
+  },
+  "processTime": 50
+}

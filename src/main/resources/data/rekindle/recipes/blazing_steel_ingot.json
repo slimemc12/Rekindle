@@ -5,10 +5,11 @@
       "item": "rekindle:unprocessed_blazing_steel"
     },
     {
-      "item": "minecraft:lava_bucket"
+      "item": "minecraft:blaze_powder"
     }
   ],
   "output": {
     "item": "rekindle:blazing_steel_ingot"
-  }
+  },
+  "processTime": 100
 }

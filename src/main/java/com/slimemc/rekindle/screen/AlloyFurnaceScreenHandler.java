@@ -1,7 +1,6 @@
 package com.slimemc.rekindle.screen;
 
 import com.slimemc.rekindle.blocks.block_entities.AlloyFurnaceBlockEntity;
-import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -13,7 +12,6 @@ import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.FurnaceOutputSlot;
 import net.minecraft.screen.slot.Slot;
-import net.minecraft.world.World;
 
 public class AlloyFurnaceScreenHandler extends ScreenHandler {
     private final Inventory inventory;
@@ -26,7 +24,6 @@ public class AlloyFurnaceScreenHandler extends ScreenHandler {
         super(RekindleScreenHandlers.ALLOY_FURNACE_SCREEN_HANDLER, syncId);
         checkSize(inventory, 4);
         this.inventory = inventory;
-        World world = playerInventory.player.world;
         inventory.onOpen(playerInventory.player);
         this.propertyDelegate = delegate;
 
@@ -50,7 +47,7 @@ public class AlloyFurnaceScreenHandler extends ScreenHandler {
     public ItemStack transferSlot(PlayerEntity player, int invSlot) {
         ItemStack newStack = ItemStack.EMPTY;
         Slot slot = this.slots.get(invSlot);
-        if (slot != null && slot.hasStack()) {
+        if (slot.hasStack()) {
             ItemStack originalStack = slot.getStack();
             newStack = originalStack.copy();
             if (invSlot < this.inventory.size()) {

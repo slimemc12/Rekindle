@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "rBr",
+    "B B",
+    "rBr"
+  ],
+  "key": {
+    "r": {
+      "item": "rekindle:steel_ingot"
+    },
+    "B": {
+      "item": "minecraft:bricks"
+    }
+  },
+  "result": {
+    "item": "rekindle:brick_casing",
+    "count": 2
+  }
+}

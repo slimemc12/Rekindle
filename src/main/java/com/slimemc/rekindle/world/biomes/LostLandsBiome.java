@@ -30,9 +30,10 @@ public class LostLandsBiome {
 
     private static Biome createLostLands() {
         SpawnSettings.Builder spawnSettings = new SpawnSettings.Builder()
-                .spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ENDERMAN, 1, 1, 4))
-                .spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.WITHER_SKELETON, 1, 1, 2))
-                .spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.SKELETON, 1, 4, 3));
+                .spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ENDERMAN, 1, 1, 3))
+                .spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.WITHER_SKELETON, 1, 1, 3))
+                .spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.SKELETON, 2, 2, 6));
+
         DefaultBiomeFeatures.addFarmAnimals(spawnSettings);
 
         GenerationSettings.Builder generationSettings = new GenerationSettings.Builder();
@@ -46,14 +47,16 @@ public class LostLandsBiome {
         DefaultBiomeFeatures.addDefaultDisks(generationSettings);
         DefaultBiomeFeatures.addSprings(generationSettings);
         DefaultBiomeFeatures.addFrozenTopLayer(generationSettings);
+        DefaultBiomeFeatures.addAmethystGeodes(generationSettings);
+        DefaultBiomeFeatures.addFossils(generationSettings);
 
         return (new Biome.Builder())
                 .precipitation(Biome.Precipitation.RAIN)
-                .category(Biome.Category.NONE)
+                .category(Biome.Category.EXTREME_HILLS)
                 .depth(1F)
-                .scale(1.8F)
-                .temperature(0.8F)
-                .downfall(0.004F)
+                .scale(1.6F)
+                .temperature(0.4F)
+                .downfall(0.01F)
                 .effects((new BiomeEffects.Builder())
                         .waterColor(0x588BC0)
                         .waterFogColor(0x2A517A)
@@ -73,7 +76,7 @@ public class LostLandsBiome {
     public static void registerLostLands() {
         Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier(Rekindle.MOD_ID, "lost_lands"), LOST_SURFACE_BUILDER);
         Registry.register(BuiltinRegistries.BIOME, LOST_LANDS_KEY.getValue(), LOST_LANDS);
-        OverworldBiomes.addContinentalBiome(LOST_LANDS_KEY, OverworldClimate.TEMPERATE, 0.2D);
-        OverworldBiomes.addContinentalBiome(LOST_LANDS_KEY, OverworldClimate.COOL, 0.3D);
+        OverworldBiomes.addContinentalBiome(LOST_LANDS_KEY, OverworldClimate.SNOWY, 0.3D);
+        OverworldBiomes.addContinentalBiome(LOST_LANDS_KEY, OverworldClimate.COOL, 0.18D);
     }
 }

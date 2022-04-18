@@ -21,6 +21,6 @@ public class ModEnchantments {
 
 
     public static void registerEnchantments() {
-        System.out.println("Registering ModEnchantments for " + Rekindle.MOD_ID);
+        System.out.println("Registering Enchantments for Rekindle");
     }
 }

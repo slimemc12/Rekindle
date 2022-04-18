@@ -10,5 +10,6 @@
   ],
   "output": {
     "item": "rekindle:steel_ingot"
-  }
+  },
+  "processTime": 150
 }

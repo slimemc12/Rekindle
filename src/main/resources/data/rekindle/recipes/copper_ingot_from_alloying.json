@@ -1,0 +1,15 @@
+{
+  "type": "rekindle:alloying",
+  "ingredients": [
+    {
+      "item": "minecraft:raw_copper"
+    },
+    {
+      "item": "minecraft:sand"
+    }
+  ],
+  "output": {
+    "item": "minecraft:copper_ingot"
+  },
+  "processTime": 50
+}

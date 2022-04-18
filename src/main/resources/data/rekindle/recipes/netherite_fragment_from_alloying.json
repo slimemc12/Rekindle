@@ -1,0 +1,15 @@
+{
+  "type": "rekindle:alloying",
+  "ingredients": [
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:netherite_scrap"
+    }
+  ],
+  "output": {
+    "item": "rekindle:netherite_fragment"
+  },
+  "processTime": 100
+}

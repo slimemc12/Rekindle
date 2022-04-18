@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iYi",
+    "iYi",
+    "iYi"
+  ],
+  "key": {
+    "i": {
+      "item": "rekindle:steel_ingot"
+    },
+    "Y": {
+      "item": "minecraft:yellow_dye"
+    }
+  },
+  "result": {
+    "item": "rekindle:factory_block",
+    "count": 2
+  }
+}

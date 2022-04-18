@@ -16,12 +16,14 @@ public class AlloyFurnaceRecipe implements Recipe<SimpleInventory> {
 
     private final Identifier id;
     private final ItemStack output;
+    private final int processTime;
     private final DefaultedList<Ingredient> recipeItems;
 
-    public AlloyFurnaceRecipe(Identifier id, ItemStack output,
+    public AlloyFurnaceRecipe(Identifier id, ItemStack output, int processTime,
                                     DefaultedList<Ingredient> recipeItems) {
         this.id = id;
         this.output = output;
+        this.processTime = processTime;
         this.recipeItems = recipeItems;
     }
 
@@ -44,6 +46,9 @@ public class AlloyFurnaceRecipe implements Recipe<SimpleInventory> {
         return true;
     }
 
+    public int getProcessTime() {
+        return processTime;
+    }
     @Override
     public ItemStack getOutput() {
         return output.copy();
@@ -78,6 +83,7 @@ public class AlloyFurnaceRecipe implements Recipe<SimpleInventory> {
         @Override
         public AlloyFurnaceRecipe read(Identifier id, JsonObject json) {
             ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "output"));
+            int processTime = JsonHelper.getInt(json, "processTime", 200);
 
             JsonArray ingredients = JsonHelper.getArray(json, "ingredients");
             DefaultedList<Ingredient> inputs = DefaultedList.ofSize(2, Ingredient.EMPTY);
@@ -86,7 +92,7 @@ public class AlloyFurnaceRecipe implements Recipe<SimpleInventory> {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
             }
 
-            return new AlloyFurnaceRecipe(id, output,
+            return new AlloyFurnaceRecipe(id, output, processTime,
                     inputs);
         }
 
@@ -99,7 +105,8 @@ public class AlloyFurnaceRecipe implements Recipe<SimpleInventory> {
             }
 
             ItemStack output = buf.readItemStack();
-            return new AlloyFurnaceRecipe(id, output,
+            int processTime = buf.readInt();
+            return new AlloyFurnaceRecipe(id, output, processTime,
                     inputs);
         }
 

@@ -75,7 +75,9 @@ public class ModItems {
     public static final Item GRANITE_PAVING;
     public static final Item GRANITE_PILLAR;
     public static final Item LIMESTONE;
+    public static final Item LIMESTONE_WALL;
     public static final Item POLISHED_LIMESTONE;
+    public static final Item POLISHED_LIMESTONE_WALL;
     public static final Item POLISHED_LIMESTONE_SLAB;
     public static final Item LIMESTONE_SLAB;
     public static final Item LIMESTONE_STAIRS;
@@ -87,6 +89,7 @@ public class ModItems {
     public static final Item LIMESTONE_PAVING;
     public static final Item LIMESTONE_PILLAR;
     public static final Item COBBLED_DIRT;
+    public static final Item FACTORY_BLOCK;
     public static final Item COOKED_BACON;
     public static final Item ICE_CREAM;
     public static final Item NOODLES;
@@ -125,6 +128,10 @@ public class ModItems {
     public static final Item CRATE;
     public static final Item INVERTED_REDSTONE_LAMP;
     public static final Item KNIFE;
+    public static final Item ADVENTURER_DIARY;
+    public static final Item NETHERITE_FRAGMENT;
+    public static final Item BRICK_CASING;
+    public static final Item HEATING_ELEMENT;
 
     public static void registerModItems() {
         System.out.println("Registering ModItems for Rekindle");
@@ -188,7 +195,9 @@ public class ModItems {
         GRANITE_PAVING = register("granite_paving", new BlockItem(ModBlocks.GRANITE_PAVING, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
         GRANITE_PILLAR = register("granite_pillar", new BlockItem(ModBlocks.GRANITE_PILLAR, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
         LIMESTONE = register("limestone", new BlockItem(ModBlocks.LIMESTONE, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
+        LIMESTONE_WALL = register("limestone_wall", new BlockItem(ModBlocks.LIMESTONE_WALL, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
         POLISHED_LIMESTONE = register("polished_limestone", new BlockItem(ModBlocks.POLISHED_LIMESTONE, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
+        POLISHED_LIMESTONE_WALL = register("polished_limestone_wall", new BlockItem(ModBlocks.POLISHED_LIMESTONE_WALL, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
         POLISHED_LIMESTONE_SLAB = register("polished_limestone_slab", new BlockItem(ModBlocks.POLISHED_LIMESTONE_SLAB, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
         LIMESTONE_SLAB = register("limestone_slab", new BlockItem(ModBlocks.LIMESTONE_SLAB, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
         LIMESTONE_STAIRS = register("limestone_stairs", new BlockItem(ModBlocks.LIMESTONE_STAIRS, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
@@ -199,7 +208,8 @@ public class ModItems {
         LIMESTONE_TILES = register("limestone_tiles", new BlockItem(ModBlocks.LIMESTONE_TILES, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
         LIMESTONE_PAVING = register("limestone_paving", new BlockItem(ModBlocks.LIMESTONE_PAVING, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
         LIMESTONE_PILLAR = register("limestone_pillar", new BlockItem(ModBlocks.LIMESTONE_PILLAR, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
-        COBBLED_DIRT = register("cobbled_dirt", new BlockItem(ModBlocks.COBBLED_DIRT, new Item.Settings().group(Rekindle.ITEM_GROUP)));
+        COBBLED_DIRT = register("cobbled_dirt", new BlockItem(ModBlocks.COBBLED_DIRT, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
+        FACTORY_BLOCK = register("factory_block", new BlockItem(ModBlocks.FACTORY_BLOCK, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
         //food
         COOKED_BACON = register("cooked_bacon", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(3).saturationModifier(6f).meat().build())));
         ICE_CREAM = register("ice_cream", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(2).saturationModifier(4f).build())));
@@ -239,7 +249,11 @@ public class ModItems {
         ALLOY_FURNACE = register("alloy_furnace", new BlockItem(ModBlocks.ALLOY_FURNACE, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         CRATE = register("crate", new BlockItem(ModBlocks.CRATE, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         INVERTED_REDSTONE_LAMP = register("inverted_redstone_lamp", new BlockItem(ModBlocks.INVERTED_REDSTONE_LAMP, new Item.Settings().group(Rekindle.ITEM_GROUP)));
-        KNIFE = register("knife", new KnifeItem(new FabricItemSettings().recipeRemainder(ModItems.KNIFE).group(Rekindle.ITEM_GROUP).maxCount(1).maxDamage(300)));
+        KNIFE = register("knife", new KnifeItem(new Item.Settings().recipeRemainder(ModItems.KNIFE).group(Rekindle.ITEM_GROUP).maxDamage(300)));
+        ADVENTURER_DIARY = register("adventurer_diary", new AdventurerDiary(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(Rekindle.ITEM_GROUP).maxDamage(1)));
+        NETHERITE_FRAGMENT = register("netherite_fragment", new Item(new FabricItemSettings().group(Rekindle.ITEM_GROUP)));
+        BRICK_CASING = register("brick_casing", new BlockItem(ModBlocks.BRICK_CASING, new Item.Settings().group(Rekindle.ITEM_GROUP)));
+        HEATING_ELEMENT = register("heating_element", new Item(new FabricItemSettings().group(Rekindle.ITEM_GROUP).maxCount(16)));
     }
 
 }

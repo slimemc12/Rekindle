@@ -10,5 +10,6 @@
   ],
   "output": {
     "item": "rekindle:unprocessed_blazing_steel"
-  }
+  },
+  "processTime": 120
 }
