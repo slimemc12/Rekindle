@@ -2,6 +2,7 @@ package com.slimemc.rekindle.registery;
 
 
 import com.slimemc.rekindle.Rekindle;
+import com.slimemc.rekindle.fluid.ModFluids;
 import com.slimemc.rekindle.items.*;
 import com.slimemc.rekindle.materials.BlazingSteelArmorMaterial;
 import com.slimemc.rekindle.materials.BlazingSteelToolMaterial;
@@ -42,6 +43,7 @@ public class ModItems {
     public static final Item STEEL_FENCE;
     public static final Item STEEL_ROD;
     public static final Item STEEL_SCREW;
+    public static final Item PROPELLER;
     public static final Item ALUMINUM_INGOT;
     public static final Item ALUMINUM_NUGGET;
     public static final Item ALUMINUM_BLOCK;
@@ -132,6 +134,7 @@ public class ModItems {
     public static final Item NETHERITE_FRAGMENT;
     public static final Item BRICK_CASING;
     public static final Item HEATING_ELEMENT;
+    public static final Item HONEY_BUCKET;
 
     public static void registerModItems() {
         System.out.println("Registering ModItems for Rekindle");
@@ -161,6 +164,7 @@ public class ModItems {
         STEEL_FENCE = register("steel_fence", new BlockItem(ModBlocks.STEEL_FENCE, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         STEEL_ROD = register("steel_rod", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP)));
         STEEL_SCREW = register("steel_screw", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP)));
+        PROPELLER = register("propeller", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP)));
         ALUMINUM_INGOT = register("aluminum_ingot", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP)));
         ALUMINUM_NUGGET = register("aluminum_nugget", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP)));
         ALUMINUM_BLOCK = register("aluminum_block", new BlockItem(ModBlocks.ALUMINUM_BLOCK, new Item.Settings().group(Rekindle.ITEM_GROUP)));
@@ -254,6 +258,7 @@ public class ModItems {
         NETHERITE_FRAGMENT = register("netherite_fragment", new Item(new FabricItemSettings().group(Rekindle.ITEM_GROUP)));
         BRICK_CASING = register("brick_casing", new BlockItem(ModBlocks.BRICK_CASING, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         HEATING_ELEMENT = register("heating_element", new Item(new FabricItemSettings().group(Rekindle.ITEM_GROUP).maxCount(16)));
+        HONEY_BUCKET = register("honey_bucket", new BucketItem(ModFluids.HONEY_STILL, new FabricItemSettings().group(Rekindle.ITEM_GROUP).maxCount(1)));
     }
 
 }

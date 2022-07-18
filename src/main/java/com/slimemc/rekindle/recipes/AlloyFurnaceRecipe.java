@@ -16,13 +16,15 @@ public class AlloyFurnaceRecipe implements Recipe<SimpleInventory> {
 
     private final Identifier id;
     private final ItemStack output;
+    private final int outputCount;
     private final int processTime;
     private final DefaultedList<Ingredient> recipeItems;
 
-    public AlloyFurnaceRecipe(Identifier id, ItemStack output, int processTime,
+    public AlloyFurnaceRecipe(Identifier id, ItemStack output, int outputCount, int processTime,
                                     DefaultedList<Ingredient> recipeItems) {
         this.id = id;
         this.output = output;
+        this.outputCount = outputCount;
         this.processTime = processTime;
         this.recipeItems = recipeItems;
     }
@@ -49,6 +51,11 @@ public class AlloyFurnaceRecipe implements Recipe<SimpleInventory> {
     public int getProcessTime() {
         return processTime;
     }
+
+    public int getOutputCount() {
+        return outputCount;
+    }
+
     @Override
     public ItemStack getOutput() {
         return output.copy();
@@ -83,6 +90,7 @@ public class AlloyFurnaceRecipe implements Recipe<SimpleInventory> {
         @Override
         public AlloyFurnaceRecipe read(Identifier id, JsonObject json) {
             ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "output"));
+            int outputCount = JsonHelper.getInt(json, "count", 1);
             int processTime = JsonHelper.getInt(json, "processTime", 200);
 
             JsonArray ingredients = JsonHelper.getArray(json, "ingredients");
@@ -92,7 +100,7 @@ public class AlloyFurnaceRecipe implements Recipe<SimpleInventory> {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
             }
 
-            return new AlloyFurnaceRecipe(id, output, processTime,
+            return new AlloyFurnaceRecipe(id, output, outputCount, processTime,
                     inputs);
         }
 
@@ -105,8 +113,9 @@ public class AlloyFurnaceRecipe implements Recipe<SimpleInventory> {
             }
 
             ItemStack output = buf.readItemStack();
+            int outputCount = buf.readInt();
             int processTime = buf.readInt();
-            return new AlloyFurnaceRecipe(id, output, processTime,
+            return new AlloyFurnaceRecipe(id, output, outputCount, processTime,
                     inputs);
         }
 

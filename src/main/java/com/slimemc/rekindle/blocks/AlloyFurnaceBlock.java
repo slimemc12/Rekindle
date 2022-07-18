@@ -6,8 +6,11 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.sound.SoundCategory;
@@ -16,13 +19,17 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Random;
 
 public class AlloyFurnaceBlock extends BlockWithEntity implements BlockEntityProvider {
@@ -94,6 +101,19 @@ public class AlloyFurnaceBlock extends BlockWithEntity implements BlockEntityPro
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return this.getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite());
     }
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+        if (Screen.hasShiftDown()) {
+            tooltip.add(new TranslatableText("block.rekindle.alloy_furnace.desc1"));
+            tooltip.add(new TranslatableText("block.rekindle.alloy_furnace.desc2"));
+            tooltip.add(new TranslatableText("block.rekindle.alloy_furnace.desc3"));
+        } else {
+            tooltip.add(new TranslatableText("tooltip.rekindle.generic_press_shift"));
+        }
+        super.appendTooltip(stack, world, tooltip, options);
+    }
+
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         if (state.get(LIT)) {
             double d = (double)pos.getX() + 0.5D;

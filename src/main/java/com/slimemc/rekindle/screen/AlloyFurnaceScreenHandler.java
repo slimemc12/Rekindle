@@ -43,6 +43,11 @@ public class AlloyFurnaceScreenHandler extends ScreenHandler {
         return this.inventory.canPlayerUse(player);
     }
 
+    public boolean hasFuel() {
+        return propertyDelegate.get(2) > 0;
+    }
+
+
     @Override
     public ItemStack transferSlot(PlayerEntity player, int invSlot) {
         ItemStack newStack = ItemStack.EMPTY;
@@ -68,6 +73,26 @@ public class AlloyFurnaceScreenHandler extends ScreenHandler {
         return newStack;
     }
 
+    public boolean isCrafting() {
+        return propertyDelegate.get(0) > 0;
+    }
+
+    public int getScaledProgress() {
+        int progress = this.propertyDelegate.get(0);
+        int maxProgress = this.propertyDelegate.get(1); // Max Progress
+        int progressArrowSize = 21;
+
+        return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
+    }
+
+    public int getScaledFuelProgress() {
+        int fuelProgress = this.propertyDelegate.get(2);
+        int maxFuelProgress = this.propertyDelegate.get(3); // Max Progress
+        int fuelProgressSize = 14;
+
+        return maxFuelProgress != 0 ? (int)(((float)fuelProgress / (float)maxFuelProgress) * fuelProgressSize) : 0;
+    }
+
     private void addPlayerInventory(PlayerInventory playerInventory) {
         for (int i = 0; i < 3; ++i) {
             for (int l = 0; l < 9; ++l) {
@@ -81,25 +106,8 @@ public class AlloyFurnaceScreenHandler extends ScreenHandler {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 144));
         }
     }
-    public boolean isCrafting() {
-        return propertyDelegate.get(0) > 0;
-    }
 
-    public int getScaledProgress() {
-        int progress = this.propertyDelegate.get(0);
-        int maxProgress = this.propertyDelegate.get(1); // Max Progress
-        int progressArrowSize = 21;
 
-        return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
-    }
-
-    public int getScaledFuel() {
-        int progress = this.propertyDelegate.get(0);
-        int maxProgress = this.propertyDelegate.get(1); // Max Progress
-        int fuelArrowSize = 14;
-
-        return maxProgress != 0 && progress != 0 ? progress * fuelArrowSize / maxProgress : 0;
-    }
     protected boolean isFuel(ItemStack itemStack) {
         return AlloyFurnaceBlockEntity.canUseAsFuel(itemStack);
     }

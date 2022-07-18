@@ -1,11 +1,12 @@
 package com.slimemc.rekindle.blocks.block_entities;
 
 import com.google.common.collect.Maps;
+import com.slimemc.rekindle.blocks.AlloyFurnaceBlock;
 import com.slimemc.rekindle.recipes.AlloyFurnaceRecipe;
 import com.slimemc.rekindle.registery.ModItems;
 import com.slimemc.rekindle.screen.AlloyFurnaceScreenHandler;
 import com.slimemc.rekindle.util.ImplementedInventory;
-import net.minecraft.block.AbstractFurnaceBlock;
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -42,6 +43,9 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements NamedScreenH
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
     private int maxProgress;
+    private int fuelTime = 0;
+    private int maxFuelTime = 0;
+    private int count;
 
     public AlloyFurnaceBlockEntity(BlockPos pos, BlockState state) {
         super(RekindleBlockEntities.ALLOY_FURNACE_BLOCK_ENTITY, pos, state);
@@ -50,6 +54,8 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements NamedScreenH
                 switch (index) {
                     case 0: return AlloyFurnaceBlockEntity.this.progress;
                     case 1: return AlloyFurnaceBlockEntity.this.maxProgress;
+                    case 2: return AlloyFurnaceBlockEntity.this.fuelTime;
+                    case 3: return AlloyFurnaceBlockEntity.this.maxFuelTime;
                     default: return 0;
                 }
             }
@@ -58,11 +64,13 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements NamedScreenH
                 switch(index) {
                     case 0: AlloyFurnaceBlockEntity.this.progress = value; break;
                     case 1: AlloyFurnaceBlockEntity.this.maxProgress = value; break;
+                    case 2: AlloyFurnaceBlockEntity.this.fuelTime = value; break;
+                    case 3: AlloyFurnaceBlockEntity.this.maxFuelTime = value; break;
                 }
             }
 
             public int size() {
-                return 2;
+                return 4;
             }
         };
     }
@@ -83,44 +91,57 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements NamedScreenH
     public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
         return new AlloyFurnaceScreenHandler(syncId, inv, this, this.propertyDelegate);
     }
-
+    @Override
+    public NbtCompound writeNbt(NbtCompound nbt) {
+        Inventories.writeNbt(nbt, inventory);
+        nbt.putInt("alloy.progress", progress);
+        nbt.putInt("alloy.fuelTime", fuelTime);
+        nbt.putInt("alloy.maxFuelTime", maxFuelTime);
+        return super.writeNbt(nbt);
+    }
     @Override
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
         Inventories.readNbt(nbt, inventory);
-        this.progress = nbt.getShort("CookTime");
-        this.maxProgress = nbt.getShort("CookTimeTotal");
+        progress = nbt.getInt("alloy.progress");
+        fuelTime = nbt.getInt("alloy.fuelTime");
+        maxFuelTime = nbt.getInt("alloy.maxFuelTime");
     }
+    // we were cheking if the entity wansnt brning to and has a recipe and we should check if it has fuel
 
-    @Override
-    public NbtCompound writeNbt(NbtCompound nbt) {
-        Inventories.writeNbt(nbt, inventory);
-        nbt.putShort("CookTime", (short)this.progress);
-        nbt.putShort("CookTimeTotal", (short)this.maxProgress);
-        return super.writeNbt(nbt);
-    }
     public static void tick(World world, BlockPos pos, BlockState state, AlloyFurnaceBlockEntity entity) {
         SimpleInventory inventory = new SimpleInventory(entity.inventory.size());
         for (int i = 0; i < entity.inventory.size(); i++) {
             inventory.setStack(i, entity.getStack(i));
         }
-
         entity.maxProgress = world.getRecipeManager()
-                .getFirstMatch(AlloyFurnaceRecipe.Type.INSTANCE, inventory, world).map(AlloyFurnaceRecipe::getProcessTime).orElse(200);
+                .getFirstMatch(AlloyFurnaceRecipe.Type.INSTANCE, inventory, world)
+                .map(AlloyFurnaceRecipe::getProcessTime).orElse(200);
         boolean bl = entity.isBurning();
         boolean bl2 = false;
-
+        entity.count = world.getRecipeManager()
+                .getFirstMatch(AlloyFurnaceRecipe.Type.INSTANCE, inventory, world)
+                .map(AlloyFurnaceRecipe::getOutputCount).orElse(1);
+        if(entity.isBurning()) {
+            entity.fuelTime--;
+        }
         if (hasRecipe(entity)) {
-            entity.progress++;
-            if (entity.progress > entity.maxProgress) {
-                craftItem(entity);
+            if(!entity.isBurning() && hasNotReachedStackLimit(entity)) {
+                entity.fuelTime = FuelRegistry.INSTANCE.get(entity.removeStack(3, 1).getItem()) /15;
+                entity.maxFuelTime = entity.fuelTime;
+            } else {
+                entity.progress++;
+                entity.fuelTime--;
+                if (entity.progress > entity.maxProgress) {
+                    craftItem(entity);
+                }
             }
         } else {
             entity.resetProgress();
         }
         if (bl != entity.isBurning()) {
             bl2 = true;
-            state = state.with(AbstractFurnaceBlock.LIT, entity.isBurning());
+            state = state.with(AlloyFurnaceBlock.LIT, entity.isBurning());
             world.setBlockState(pos, state, Block.NOTIFY_ALL);
         }
         if (bl2) {
@@ -128,7 +149,7 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements NamedScreenH
         }
     }
     private boolean isBurning() {
-        return this.progress > 0;
+        return this.fuelTime > 0;
     }
     public static boolean canUseAsFuel(ItemStack stack) {
         return createFuelTimeMap().containsKey(stack.getItem());
@@ -137,7 +158,7 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements NamedScreenH
         Map<Item, Integer> map = Maps.newLinkedHashMap();
         addFuel(map, Items.LAVA_BUCKET, 20000);
         addFuel(map, Items.BLAZE_ROD, 2400);
-        addFuel(map, ModItems.BLAST_FUEL, 20000);
+        addFuel(map, ModItems.BLAST_FUEL, 32000);
         return map;
     }
     private static void addFuel(Map<Item, Integer> fuelTimes, ItemConvertible item, int fuelTime) {
@@ -176,9 +197,8 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements NamedScreenH
         if(match.isPresent() && hasNotReachedStackLimit(entity)) {
             entity.removeStack(0,1);
             entity.removeStack(1,1);
-            entity.removeStack(3,1);
             entity.setStack(2, new ItemStack(match.get().getOutput().getItem(),
-                    entity.getStack(2).getCount() + 1));
+                    entity.getStack(2).getCount() + entity.count));
 
             entity.resetProgress();
         }
@@ -211,7 +231,6 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements NamedScreenH
     private static boolean canInsertAmountIntoOutputSlot(SimpleInventory inventory) {
         return inventory.getStack(2).getMaxCount() > inventory.getStack(2).getCount();
     }
-
     private static boolean hasNotReachedStackLimit(AlloyFurnaceBlockEntity entity) {
         return entity.getStack(2).getCount() < entity.getStack(2).getMaxCount();
     }

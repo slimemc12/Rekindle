@@ -116,10 +116,14 @@
   "block.rekindle.factory_block": "Factory Block",
   "block.rekindle.steel_bars": "Steel Bars",
   "block.rekindle.alloy_furnace": "Alloy Furnace",
+  "block.rekindle.alloy_furnace.desc1": "A very high speed process furnace used to",
+  "block.rekindle.alloy_furnace.desc2": "make different alloys and smelt your regular ingots.",
+  "block.rekindle.alloy_furnace.desc3": "Note that this furnace consumes 15x more than the normal furnace",
   "block.rekindle.inverted_redstone_lamp": "Inverted Redstone Lamp",
   "block.rekindle.crate": "Wooden Crate",
   "block.rekindle.brick_casing": "Brick Casing",
 
   "itemGroup.rekindle.rekindle": "Rekindle",
-  "itemGroup.rekindle.rekindle_palette": "Rekindle Decoration"
+  "itemGroup.rekindle.rekindle_palette": "Rekindle Decoration",
+  "tooltip.rekindle.generic_press_shift": "Press §eSHIFT§r For More Info"
 }

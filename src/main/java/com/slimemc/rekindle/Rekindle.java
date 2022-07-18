@@ -6,7 +6,6 @@ import com.slimemc.rekindle.loot_tables.LootTableModifiers;
 import com.slimemc.rekindle.recipes.RekindleRecipes;
 import com.slimemc.rekindle.registery.ModBlocks;
 import com.slimemc.rekindle.registery.ModItems;
-import com.slimemc.rekindle.status_effects.ElectrocutionStatusEffect;
 import com.slimemc.rekindle.status_effects.RekindlePotions;
 import com.slimemc.rekindle.status_effects.RekindleStatusEffects;
 import com.slimemc.rekindle.util.RekindleSoundEvents;

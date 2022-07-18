@@ -13,7 +13,4 @@ public class KnifeItem extends Item {
         stack.damage(1, attacker, null);
         return super.postHit(stack, target, attacker);
     }
-    public boolean hasRecipeRemainder() {
-        return true;
-    }
 }

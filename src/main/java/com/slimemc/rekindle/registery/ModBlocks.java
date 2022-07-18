@@ -2,6 +2,7 @@ package com.slimemc.rekindle.registery;
 
 import com.slimemc.rekindle.Rekindle;
 import com.slimemc.rekindle.blocks.*;
+import com.slimemc.rekindle.fluid.ModFluids;
 import com.slimemc.rekindle.util.*;
 import com.slimemc.rekindle.util.block.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -68,6 +69,7 @@ public class ModBlocks {
     public static final Block INVERTED_REDSTONE_LAMP;
     public static final Block CRATE;
     public static final Block BRICK_CASING;
+    public static final Block HONEY_FLUID_BLOCK;
 
     public static void registerModBlocks() {
         System.out.println("Registering ModBlocks for Rekindle");
@@ -136,5 +138,7 @@ public class ModBlocks {
                 .luminance((state) -> state.get(RedstoneLampBlock.LIT) ? 0 : 15)));
         CRATE = register("crate", new CrateBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD)));
         BRICK_CASING = register("brick_casing", new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 2).strength(3.0F, 7.0F).requiresTool().sounds(BlockSoundGroup.NETHER_BRICKS)));
+        HONEY_FLUID_BLOCK = register("honey_fluid_block", new RekindleFluidBlock(ModFluids.HONEY_STILL, FabricBlockSettings.of(Material.WATER)
+                        .noCollision().nonOpaque().dropsNothing()));
     }
 }
