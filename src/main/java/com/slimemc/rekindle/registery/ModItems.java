@@ -2,7 +2,6 @@ package com.slimemc.rekindle.registery;
 
 
 import com.slimemc.rekindle.Rekindle;
-import com.slimemc.rekindle.fluid.ModFluids;
 import com.slimemc.rekindle.items.*;
 import com.slimemc.rekindle.materials.BlazingSteelArmorMaterial;
 import com.slimemc.rekindle.materials.BlazingSteelToolMaterial;
@@ -92,6 +91,7 @@ public class ModItems {
     public static final Item LIMESTONE_PILLAR;
     public static final Item COBBLED_DIRT;
     public static final Item FACTORY_BLOCK;
+    public static final Item FAN_PIPE;
     public static final Item COOKED_BACON;
     public static final Item ICE_CREAM;
     public static final Item NOODLES;
@@ -134,7 +134,6 @@ public class ModItems {
     public static final Item NETHERITE_FRAGMENT;
     public static final Item BRICK_CASING;
     public static final Item HEATING_ELEMENT;
-    public static final Item HONEY_BUCKET;
 
     public static void registerModItems() {
         System.out.println("Registering ModItems for Rekindle");
@@ -214,15 +213,16 @@ public class ModItems {
         LIMESTONE_PILLAR = register("limestone_pillar", new BlockItem(ModBlocks.LIMESTONE_PILLAR, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
         COBBLED_DIRT = register("cobbled_dirt", new BlockItem(ModBlocks.COBBLED_DIRT, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
         FACTORY_BLOCK = register("factory_block", new BlockItem(ModBlocks.FACTORY_BLOCK, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
+        FAN_PIPE = register("fan_pipe", new BlockItem(ModBlocks.FAN_PIPE, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
         //food
         COOKED_BACON = register("cooked_bacon", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(3).saturationModifier(6f).meat().build())));
         ICE_CREAM = register("ice_cream", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(2).saturationModifier(4f).build())));
-        NOODLES = register("noodles", new MushroomStewItem(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(4).saturationModifier(6f).build())));
+        NOODLES = register("noodles", new StewItem(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(4).saturationModifier(6f).build())));
         MEATBALLS = register("meatballs", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(1).saturationModifier(2f).build())));
         RAW_BACON = register("raw_bacon", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(6).saturationModifier(10f).build())));
         MEATBALL_SANDWHICH = register("meatball_sandwhich", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(7).saturationModifier(9f).build())));
         PASTA = register("pasta", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(2).saturationModifier(3f).build())));
-        SPAGHETTI = register("spaghetti", new MushroomStewItem(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(4).saturationModifier(6f).build())));
+        SPAGHETTI = register("spaghetti", new StewItem(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(4).saturationModifier(6f).build())));
         TOMATO = register("tomato", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(1).saturationModifier(2f).build())));
         KIWI = register("kiwi", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(1).saturationModifier(2.5f).build())));
         RASPBERRY = register("raspberry", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(2).saturationModifier(2.5f).build())));
@@ -258,7 +258,6 @@ public class ModItems {
         NETHERITE_FRAGMENT = register("netherite_fragment", new Item(new FabricItemSettings().group(Rekindle.ITEM_GROUP)));
         BRICK_CASING = register("brick_casing", new BlockItem(ModBlocks.BRICK_CASING, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         HEATING_ELEMENT = register("heating_element", new Item(new FabricItemSettings().group(Rekindle.ITEM_GROUP).maxCount(16)));
-        HONEY_BUCKET = register("honey_bucket", new BucketItem(ModFluids.HONEY_STILL, new FabricItemSettings().group(Rekindle.ITEM_GROUP).maxCount(1)));
     }
 
 }

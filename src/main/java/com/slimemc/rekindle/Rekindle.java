@@ -1,6 +1,7 @@
 package com.slimemc.rekindle;
 
 
+import com.slimemc.rekindle.blocks.block_entities.RekindleBlockEntities;
 import com.slimemc.rekindle.enchantments.ModEnchantments;
 import com.slimemc.rekindle.loot_tables.LootTableModifiers;
 import com.slimemc.rekindle.recipes.RekindleRecipes;
@@ -12,8 +13,6 @@ import com.slimemc.rekindle.util.RekindleSoundEvents;
 import com.slimemc.rekindle.util.item.RekindleRegistries;
 import com.slimemc.rekindle.world.ModWorldGen;
 import com.slimemc.rekindle.world.RekindleConfiguredFeature;
-import com.slimemc.rekindle.world.biomes.LostLandsBiome;
-import com.slimemc.rekindle.world.biomes.OasisBiome;
 import com.slimemc.rekindle.world.OreGenerator;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -34,20 +33,19 @@ public class Rekindle implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        RekindleConfiguredFeature.registerConfiguredFeatures();
         ModItems.registerModItems();
         ModBlocks.registerModBlocks();
         RekindleRegistries.registerFuels();
+        RekindleBlockEntities.registerAllBlockEntities();
         RekindleRecipes.registerRecipes();
         ModEnchantments.registerEnchantments();
-        OreGenerator.registerOres();
-        LostLandsBiome.registerLostLands();
-        OasisBiome.registerOasis();
+        ModWorldGen.registerModWorldGen();
         RekindleStatusEffects.registerElectrocutionEffect();
         RekindlePotions.registerPotions();
         LootTableModifiers.modifyLootTables();
         RekindleSoundEvents.registerSoundEvents();
-        ModWorldGen.registerModWorldGen();
-        RekindleConfiguredFeature.registerConfiguredFeatures();
+
         System.out.println("Rekindle mod was loaded successfully");
     }
 

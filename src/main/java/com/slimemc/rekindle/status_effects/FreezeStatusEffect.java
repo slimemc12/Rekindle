@@ -2,11 +2,11 @@ package com.slimemc.rekindle.status_effects;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectType;
+import net.minecraft.entity.effect.StatusEffectCategory;
 
 public class FreezeStatusEffect extends StatusEffect {
     protected FreezeStatusEffect() {
-        super(StatusEffectType.NEUTRAL, 0x3273a8);
+        super(StatusEffectCategory.NEUTRAL, 0x3273a8);
     }
     public static final StatusEffect FREEZE = new FreezeStatusEffect();
     @Override

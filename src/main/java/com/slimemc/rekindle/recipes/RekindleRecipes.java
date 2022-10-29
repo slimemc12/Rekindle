@@ -12,5 +12,6 @@ public class RekindleRecipes {
                 AlloyFurnaceRecipe.Type.INSTANCE);
         Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(Rekindle.MOD_ID, "advanced_recipe"),
                 AdvancedRecipeSerializer.INSTANCE);
+        System.out.println("Registering Recipes for Rekindle");
     }
 }

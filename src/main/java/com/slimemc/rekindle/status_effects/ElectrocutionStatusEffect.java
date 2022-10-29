@@ -3,11 +3,11 @@ package com.slimemc.rekindle.status_effects;
 import com.slimemc.rekindle.util.RekindleDamageSources;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectType;
+import net.minecraft.entity.effect.StatusEffectCategory;
 
 public class ElectrocutionStatusEffect extends StatusEffect {
     public ElectrocutionStatusEffect() {
-        super(StatusEffectType.HARMFUL, 0xFFE433);
+        super(StatusEffectCategory.HARMFUL, 0xFFE433);
     }
     public static final StatusEffect ELECTROCUTION = new ElectrocutionStatusEffect();
     @Override

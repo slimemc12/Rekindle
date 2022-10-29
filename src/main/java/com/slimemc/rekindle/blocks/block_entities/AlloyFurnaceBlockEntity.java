@@ -92,17 +92,17 @@ public class AlloyFurnaceBlockEntity extends BlockEntity implements NamedScreenH
         return new AlloyFurnaceScreenHandler(syncId, inv, this, this.propertyDelegate);
     }
     @Override
-    public NbtCompound writeNbt(NbtCompound nbt) {
+    public void writeNbt(NbtCompound nbt) {
         Inventories.writeNbt(nbt, inventory);
         nbt.putInt("alloy.progress", progress);
         nbt.putInt("alloy.fuelTime", fuelTime);
         nbt.putInt("alloy.maxFuelTime", maxFuelTime);
-        return super.writeNbt(nbt);
+        super.writeNbt(nbt);
     }
     @Override
     public void readNbt(NbtCompound nbt) {
-        super.readNbt(nbt);
         Inventories.readNbt(nbt, inventory);
+        super.readNbt(nbt);
         progress = nbt.getInt("alloy.progress");
         fuelTime = nbt.getInt("alloy.fuelTime");
         maxFuelTime = nbt.getInt("alloy.maxFuelTime");
