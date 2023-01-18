@@ -5,11 +5,11 @@
       "item": "minecraft:gold_ingot"
     },
     {
-      "item": "minecraft:netherite_scrap"
+      "item": "minecraft:ancient_debris"
     }
   ],
   "output": {
     "item": "rekindle:netherite_fragment"
   },
-  "processTime": 100
+  "processTime": 200
 }

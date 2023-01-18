@@ -2,7 +2,9 @@ package com.slimemc.rekindle.registery;
 
 
 import com.slimemc.rekindle.Rekindle;
+import com.slimemc.rekindle.fluid.ModFluids;
 import com.slimemc.rekindle.items.*;
+import com.slimemc.rekindle.items.MilkBucketItem;
 import com.slimemc.rekindle.materials.BlazingSteelArmorMaterial;
 import com.slimemc.rekindle.materials.BlazingSteelToolMaterial;
 import com.slimemc.rekindle.util.item.RekindleAxe;
@@ -16,6 +18,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
@@ -47,6 +50,7 @@ public class ModItems {
     public static final Item ALUMINUM_NUGGET;
     public static final Item ALUMINUM_BLOCK;
     public static final Item ALUMINUM_ORE;
+    public static final Item DEEPSLATE_ALUMINUM_ORE;
     public static final Item SALT_ORE;
     public static final Item BLAZING_STEEL_INGOT;
     public static final Item UNPROCESSED_BLAZING_STEEL;
@@ -91,7 +95,6 @@ public class ModItems {
     public static final Item LIMESTONE_PILLAR;
     public static final Item COBBLED_DIRT;
     public static final Item FACTORY_BLOCK;
-    public static final Item FAN_PIPE;
     public static final Item COOKED_BACON;
     public static final Item ICE_CREAM;
     public static final Item NOODLES;
@@ -134,6 +137,15 @@ public class ModItems {
     public static final Item NETHERITE_FRAGMENT;
     public static final Item BRICK_CASING;
     public static final Item HEATING_ELEMENT;
+    public static final Item DISTILLED_WATER_BUCKET;
+    public static final Item MILK_BUCKET;
+    public static final Item OIL_BUCKET;
+    public static final Item EMPTY_CELL;
+    public static final Item LAVA_CELL;
+    public static final Item WATER_CELL;
+    public static final Item DISTILLED_WATER_CELL;
+    public static final Item MILK_CELL;
+    public static final Item OIL_CELL;
 
     public static void registerModItems() {
         System.out.println("Registering ModItems for Rekindle");
@@ -141,6 +153,7 @@ public class ModItems {
     private static Item register(String id, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(Rekindle.MOD_ID, id), item);
     }
+
 
     static {
         CARBONISED_IRON = register("carbonised_iron", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP)));
@@ -168,6 +181,8 @@ public class ModItems {
         ALUMINUM_NUGGET = register("aluminum_nugget", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP)));
         ALUMINUM_BLOCK = register("aluminum_block", new BlockItem(ModBlocks.ALUMINUM_BLOCK, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         ALUMINUM_ORE = register("aluminum_ore", new BlockItem(ModBlocks.ALUMINUM_ORE, new Item.Settings().group(Rekindle.ITEM_GROUP)));
+        DEEPSLATE_ALUMINUM_ORE = register("deepslate_aluminum_ore", new BlockItem(ModBlocks.DEEPSLATE_ALUMINUM_ORE, new Item.Settings().group(Rekindle.ITEM_GROUP)));
+
         SALT_ORE = register("salt_ore", new BlockItem(ModBlocks.SALT_ORE, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         BLAZING_STEEL_INGOT = register("blazing_steel_ingot", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).fireproof().rarity(Rarity.UNCOMMON)));
         UNPROCESSED_BLAZING_STEEL = register("unprocessed_blazing_steel", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).rarity(Rarity.UNCOMMON)));
@@ -213,7 +228,6 @@ public class ModItems {
         LIMESTONE_PILLAR = register("limestone_pillar", new BlockItem(ModBlocks.LIMESTONE_PILLAR, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
         COBBLED_DIRT = register("cobbled_dirt", new BlockItem(ModBlocks.COBBLED_DIRT, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
         FACTORY_BLOCK = register("factory_block", new BlockItem(ModBlocks.FACTORY_BLOCK, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
-        FAN_PIPE = register("fan_pipe", new BlockItem(ModBlocks.FAN_PIPE, new Item.Settings().group(Rekindle.ITEM_GROUP_PALETTES)));
         //food
         COOKED_BACON = register("cooked_bacon", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(3).saturationModifier(6f).meat().build())));
         ICE_CREAM = register("ice_cream", new Item(new Item.Settings().group(Rekindle.ITEM_GROUP).food(new FoodComponent.Builder().hunger(2).saturationModifier(4f).build())));
@@ -258,7 +272,17 @@ public class ModItems {
         NETHERITE_FRAGMENT = register("netherite_fragment", new Item(new FabricItemSettings().group(Rekindle.ITEM_GROUP)));
         BRICK_CASING = register("brick_casing", new BlockItem(ModBlocks.BRICK_CASING, new Item.Settings().group(Rekindle.ITEM_GROUP)));
         HEATING_ELEMENT = register("heating_element", new Item(new FabricItemSettings().group(Rekindle.ITEM_GROUP).maxCount(16)));
-    }
+        //fuilds
+        DISTILLED_WATER_BUCKET = register("distilled_water_bucket", new BucketItem(ModFluids.DISTILLED_WATER_STILL, new FabricItemSettings().group(Rekindle.ITEM_GROUP).maxCount(1)));
+        MILK_BUCKET = register("milk_bucket", new MilkBucketItem(ModFluids.MILK_STILL, new FabricItemSettings().group(Rekindle.ITEM_GROUP).maxCount(1)));
+        OIL_BUCKET = register("oil_bucket", new BucketItem(ModFluids.OIL_STILL, new FabricItemSettings().group(Rekindle.ITEM_GROUP).maxCount(1)));
 
+        EMPTY_CELL = register("empty_cell", new CellItem(Fluids.EMPTY, new FabricItemSettings().group(Rekindle.ITEM_GROUP)));
+        WATER_CELL= register("water_cell", new CellItem(Fluids.WATER, new FabricItemSettings().group(Rekindle.ITEM_GROUP).recipeRemainder(ModItems.EMPTY_CELL).maxCount(32)));
+        LAVA_CELL = register("lava_cell", new CellItem(Fluids.LAVA, new FabricItemSettings().group(Rekindle.ITEM_GROUP).recipeRemainder(ModItems.EMPTY_CELL).maxCount(32)));
+        DISTILLED_WATER_CELL = register("distilled_water_cell", new CellItem(ModFluids.DISTILLED_WATER_STILL, new FabricItemSettings().group(Rekindle.ITEM_GROUP).recipeRemainder(ModItems.EMPTY_CELL).maxCount(32)));
+        MILK_CELL = register("milk_cell", new CellItem(ModFluids.MILK_STILL, new FabricItemSettings().group(Rekindle.ITEM_GROUP).recipeRemainder(ModItems.EMPTY_CELL).maxCount(32)));
+        OIL_CELL = register("oil_cell", new CellItem(ModFluids.OIL_STILL, new FabricItemSettings().group(Rekindle.ITEM_GROUP).recipeRemainder(ModItems.EMPTY_CELL).maxCount(32)));
+    }
 }
 

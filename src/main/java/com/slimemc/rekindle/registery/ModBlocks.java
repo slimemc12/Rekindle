@@ -2,6 +2,7 @@ package com.slimemc.rekindle.registery;
 
 import com.slimemc.rekindle.Rekindle;
 import com.slimemc.rekindle.blocks.*;
+import com.slimemc.rekindle.fluid.ModFluids;
 import com.slimemc.rekindle.util.*;
 import com.slimemc.rekindle.util.block.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -20,6 +21,7 @@ public class ModBlocks {
     public static final Block STEEL_FENCE;
     public static final Block ALUMINUM_BLOCK;
     public static final Block ALUMINUM_ORE;
+    public static final Block DEEPSLATE_ALUMINUM_ORE;
     public static final Block SALT_ORE;
     public static final Block ANDESITE_BRICKS;
     public static final Block ANDESITE_LARGE_BRICKS;
@@ -55,7 +57,6 @@ public class ModBlocks {
     public static final Block LIMESTONE_PILLAR;
     public static final Block COBBLED_DIRT;
     public static final Block FACTORY_BLOCK;
-    public static final Block FAN_PIPE;
     public static final Block TOMATO_CROP;
     public static final Block KIWI_CROP;
     public static final Block RASPBERRY_CROP;
@@ -68,6 +69,9 @@ public class ModBlocks {
     public static final Block INVERTED_REDSTONE_LAMP;
     public static final Block CRATE;
     public static final Block BRICK_CASING;
+    public static final Block DISTELLED_WATER_FLUID_BLOCK;
+    public static final Block MILK_FLUID_BLOCK;
+    public static final Block OIL_FLUID_BLOCK;
 
     public static void registerModBlocks() {
         System.out.println("Registering ModBlocks for Rekindle");
@@ -84,6 +88,7 @@ public class ModBlocks {
         STEEL_FENCE = register("steel_fence", new FenceBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(5.0F, 13.0F).sounds(BlockSoundGroup.METAL).nonOpaque())) ;
         ALUMINUM_BLOCK = register("aluminum_block", new Block(FabricBlockSettings.of(Material.METAL).requiresTool().strength(5.0f, 6.0f).sounds(BlockSoundGroup.METAL)));
         ALUMINUM_ORE = register("aluminum_ore", new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0f, 5.0f).sounds(BlockSoundGroup.STONE)));
+        DEEPSLATE_ALUMINUM_ORE = register("deepslate_aluminum_ore", new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(6.0f, 8.0f).sounds(BlockSoundGroup.DEEPSLATE)));
         SALT_ORE = register("salt_ore", new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(3F,7F).sounds(BlockSoundGroup.STONE)));
         // deco
         ANDESITE_BRICKS = register("andesite_bricks", new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.2f, 7.0f).sounds(BlockSoundGroup.STONE)));
@@ -120,7 +125,6 @@ public class ModBlocks {
         LIMESTONE_PILLAR = register("limestone_pillar", new PillarBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.2f,7.0f).sounds(BlockSoundGroup.STONE)));
         COBBLED_DIRT = register("cobbled_dirt", new Block(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).strength(2.5f, 2F).sounds(RekindleBlockSoundGroup.COBBLED_DIRT)));
         FACTORY_BLOCK = register("factory_block", new Block(FabricBlockSettings.of(Material.METAL).requiresTool().strength(2.5f,4.5f).sounds(BlockSoundGroup.METAL)));
-        FAN_PIPE = register("fan_pipe", new PillarBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(2.5f,4.5f).sounds(BlockSoundGroup.METAL)));
         // crops
         TOMATO_CROP = register("tomato_crop", new TomatoBlock(FabricBlockSettings.of(Material.PLANT).breakInstantly().strength(0F,0F).sounds(BlockSoundGroup.CROP).noCollision()));
         KIWI_CROP = register("kiwi_crop", new KiwiBlock(FabricBlockSettings.of(Material.PLANT).breakInstantly().strength(0F,0F).sounds(BlockSoundGroup.CROP).noCollision()));
@@ -137,5 +141,11 @@ public class ModBlocks {
                 .luminance((state) -> state.get(RedstoneLampBlock.LIT) ? 0 : 15)));
         CRATE = register("crate", new CrateBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD)));
         BRICK_CASING = register("brick_casing", new Block(FabricBlockSettings.of(Material.STONE).strength(3.0F, 7.0F).requiresTool().sounds(BlockSoundGroup.NETHER_BRICKS)));
+        //fluids
+        DISTELLED_WATER_FLUID_BLOCK = register("distilled_water_fluid_block", new RekindleFluidBlock(ModFluids.DISTILLED_WATER_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()));
+        MILK_FLUID_BLOCK = register("milk_fluid_block", new RekindleFluidBlock(ModFluids.MILK_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()));
+        OIL_FLUID_BLOCK = register("oil_fluid_block", new RekindleFluidBlock(ModFluids.OIL_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()));
+
+
     }
 }

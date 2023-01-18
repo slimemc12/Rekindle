@@ -7,10 +7,10 @@
   ],
   "key": {
     "r": {
-      "tag": "c:steel_ingots"
+      "item": "rekindle:steel_ingot"
     },
     "R": {
-      "tag": "c:steel_blocks"
+      "item": "rekindle:steel_block"
     },
     "I": {
       "item": "rekindle:brick_casing"

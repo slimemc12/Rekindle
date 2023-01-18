@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "rekindle:distilled_water_still",
+    "rekindle:distilled_water_flowing",
+    "rekindle:milk_still",
+    "rekindle:milk_flowing"
+  ]
+}

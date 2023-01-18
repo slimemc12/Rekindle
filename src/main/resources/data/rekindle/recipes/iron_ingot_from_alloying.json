@@ -5,7 +5,7 @@
       "item": "minecraft:raw_iron"
     },
     {
-      "item": "minecraft:sand"
+      "tag": "minecraft:sand"
     }
   ],
   "output": {

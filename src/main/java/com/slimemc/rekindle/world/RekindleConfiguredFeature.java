@@ -1,6 +1,5 @@
 package com.slimemc.rekindle.world;
 
-
 import com.slimemc.rekindle.registery.ModBlocks;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.gen.feature.*;
@@ -12,7 +11,7 @@ public class RekindleConfiguredFeature {
             OreFeatureConfig.createTarget(OreConfiguredFeatures.STONE_ORE_REPLACEABLES,
                     ModBlocks.ALUMINUM_ORE.getDefaultState()),
             OreFeatureConfig.createTarget(OreConfiguredFeatures.DEEPSLATE_ORE_REPLACEABLES,
-                    ModBlocks.ALUMINUM_ORE.getDefaultState()));
+                    ModBlocks.ALUMINUM_BLOCK.getDefaultState()));
     public static final List<OreFeatureConfig.Target> OVERWORLD_SALT_ORES = List.of(
             OreFeatureConfig.createTarget(OreConfiguredFeatures.STONE_ORE_REPLACEABLES,
                     ModBlocks.SALT_ORE.getDefaultState()));

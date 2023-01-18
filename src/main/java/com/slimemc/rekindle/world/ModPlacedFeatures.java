@@ -8,9 +8,9 @@ import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
 
 public class ModPlacedFeatures {
     public static final RegistryEntry<PlacedFeature> ALUMINUM_ORE_PLACED = PlacedFeatures.register("aluminum_ore_placed",
-            RekindleConfiguredFeature.ALUMINUM_ORE, ModOreFeatures.modifiersWithCount(5,
-                    HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-64), YOffset.aboveBottom(10))));
+            RekindleConfiguredFeature.ALUMINUM_ORE, ModOreFeatures.modifiersWithCount(7,
+                    HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-40), YOffset.aboveBottom(20))));
     public static final RegistryEntry<PlacedFeature> SALT_ORE_PLACED = PlacedFeatures.register("salt_ore_placed",
             RekindleConfiguredFeature.SALT_ORE, ModOreFeatures.modifiersWithCount(9,
-                    HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(40), YOffset.aboveBottom(128))));
+                    HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(35), YOffset.aboveBottom(128))));
 }

@@ -65,13 +65,28 @@
   "item.rekindle.blazing_steel_chestplate": "Blazing Steel Chestplate",
   "item.rekindle.blazing_steel_leggings": "Blazing Steel Leggings",
   "item.rekindle.blazing_steel_boots": "Blazing Steel Boots",
+  "item.rekindle.distilled_water_bucket": "Distilled Water Bucket",
+  "item.rekindle.milk_bucket": "Milk Bucket",
+  "item.rekindle.milk_bucket.desc": "This Milk §eCan Be Placed§r",
+  "item.rekindle.oil_bucket": "Oil Bucket",
+  "item.rekindle.empty_cell": "Empty Cell",
+  "item.rekindle.water_cell": "Water Cell",
+  "item.rekindle.lava_cell": "Lava Cell",
+  "item.rekindle.distilled_water_cell": "Distilled Water Cell",
+  "item.rekindle.milk_cell": "Milk Cell",
+  "item.rekindle.oil_cell": "Oil Cell",
+
+
   "enchantment.rekindle.venom": "Venom",
   "enchantment.rekindle.vitality": "Vitality",
+
   "effect.rekindle.electrocution": "Electrocution",
   "effect.rekindle.freeze": "Freeze",
   "death.attack.electrocuted": "%1$s was electrocuted to death",
+
   "biome.tutorial.lost_lands": "Lost Lands",
   "biome.tutorial.oasis": "Oasis",
+
   "block.rekindle.steel_block": "Steel Block",
   "block.rekindle.aluminum_block": "Aluminum Block",
   "block.rekindle.aluminum_ore": "Aluminum Ore",
